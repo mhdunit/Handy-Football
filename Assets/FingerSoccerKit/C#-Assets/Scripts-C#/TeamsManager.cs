@@ -21,7 +21,7 @@ public class TeamsManager : MonoBehaviour {
             //National
 
             //Iran
-		case 0:
+		case (0):
 			settings = new Vector2(5, 7);
 			break;
             //Sweden
