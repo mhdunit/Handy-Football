@@ -1890,7 +1890,7 @@ MonoBehaviour:
   National: {fileID: 776497654}
   IranFC: {fileID: 487978384}
   WorldFC: {fileID: 1489913839}
-  availableNationalTeams:
+  availableTeams:
   - {fileID: 2800000, guid: 86f9e776045c0d844898469d08d9bc16, type: 3}
   - {fileID: 2800000, guid: 31cefea2e6d28224ebc919719d23bcba, type: 3}
   - {fileID: 2800000, guid: fd3132cbc1a8567448293cdd536999c9, type: 3}
@@ -1919,7 +1919,6 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 1d89889a89f743c4292e43be1dd3f122, type: 3}
   - {fileID: 2800000, guid: 6c5bf0124aef0594694152d47c444794, type: 3}
   - {fileID: 2800000, guid: d42977b860cf40145846318ac790a5ea, type: 3}
-  availableIranFCTeams:
   - {fileID: 2800000, guid: 30ff782f02cc57a4088a728eff359fb4, type: 3}
   - {fileID: 2800000, guid: 8baeed36c48075f488d004fe81623165, type: 3}
   - {fileID: 2800000, guid: 2b67b5e531ddb774d8d214eb8751ff9b, type: 3}
@@ -1936,7 +1935,6 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 19d06e2047ccaa84e8ecf9a0fe100de9, type: 3}
   - {fileID: 2800000, guid: f3c0a53ffb242bc4e9a179f5dd833f69, type: 3}
   - {fileID: 2800000, guid: 7332c8051f7f5e540a3fcc144887da59, type: 3}
-  availableWorldFCTeams:
   - {fileID: 2800000, guid: a0b393c6aa583eb41878fe40e58235c9, type: 3}
   - {fileID: 2800000, guid: 122623133c466cc4e8d85a03620ba47b, type: 3}
   - {fileID: 2800000, guid: 276d93debfaaa6a498dbabb1d63543f7, type: 3}
@@ -1953,10 +1951,6 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 3989c8b0d3530db4796cd76f80fcfecb, type: 3}
   - {fileID: 2800000, guid: 96bcc428cc71fb749a00c251afe6f772, type: 3}
   - {fileID: 2800000, guid: 3896c1abdb08ee44791f689a05902cb7, type: 3}
-  FirstTeams:
-  - {fileID: 2100000, guid: c1a3bcbb1f2732647a462891bd22cbc4, type: 2}
-  - {fileID: 2100000, guid: 3e441f0ef95bdf748b0570054e105edf, type: 2}
-  - {fileID: 2100000, guid: e4d1214b235ace64d8d1baa66d381624, type: 2}
   availableFormations:
   - 1-2-2
   - 1-3-1
@@ -1968,8 +1962,6 @@ MonoBehaviour:
   - 5 Min
   - 8 Min
   p1Team: {fileID: 1561705340}
-  Team1Mat: {fileID: 1561705342}
-  Team2Mat: {fileID: 905799049}
   p1PowerBar: {fileID: 1684617036}
   p1TimeBar: {fileID: 1163062695}
   p2Team: {fileID: 905799047}

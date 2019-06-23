@@ -32,9 +32,8 @@ public class ConfigController : MonoBehaviour {
 	public AudioClip tapSfx;					//tap sound for buttons click
 
     public GameObject National, IranFC, WorldFC;
-	public Texture2D[] availableNationalTeams;			//just the images.
-    public Texture2D[] availableIranFCTeams;           //just the images.
-    public Texture2D[] availableWorldFCTeams;           //just the images.
+	public Texture2D[] availableTeams;			//just the images.
+         //just the images.
     public string[] availableFormations;		//Just the string values. We setup actual values somewhere else.
 	public string[] availableTimes;				//Just the string values. We setup actual values somewhere else.
 
@@ -60,28 +59,31 @@ public class ConfigController : MonoBehaviour {
 	//***************************************************************************
 	void Awake (){
 
-		//check if this config scene is getting used for tournament or normal play mode
-		isTournamentMode = PlayerPrefs.GetInt("IsTournament");
-		if(isTournamentMode == 1) {
+        //check if this config scene is getting used for tournament or normal play mode
+        isTournamentMode = PlayerPrefs.GetInt("IsTournament");
 
-			//first of all, check if we are going to continue an unfinished tournament
-			if(PlayerPrefs.GetInt("TorunamentLevel") > 0) {
-				//if so, there is no need for any configuration. load the next scene.
-				SceneManager.LoadScene("Tournament-c#");
-				return;
-			}
+        if (isTournamentMode == 1)
+        {
+
+            //first of all, check if we are going to continue an unfinished tournament
+            if (PlayerPrefs.GetInt("TorunamentLevel") > 0)
+            {
+                //if so, there is no need for any configuration. load the next scene.
+                SceneManager.LoadScene("Tournament-c#");
+                return;
+            }
 
 
-			//disable unnecessary options
-			p2TeamSel.SetActive(false);
-			p2FormationSel.SetActive(false);
-			timeSel.SetActive(false);
+            //disable unnecessary options
+            p2TeamSel.SetActive(false);
+            p2FormationSel.SetActive(false);
+            timeSel.SetActive(false);
 
-			p1TeamSel.transform.position = new Vector3(0, 4.5f, -1);
-			p1FormationSel.transform.position = new Vector3(0, -4.3f, -1);
-		}
-			
-		p1FormationLabel.GetComponent<TextMesh>().text = availableFormations[p1FormationCounter];	//loads default formation
+            p1TeamSel.transform.position = new Vector3(0, 4.5f, -1);
+            p1FormationSel.transform.position = new Vector3(0, -4.3f, -1);
+        }
+
+        p1FormationLabel.GetComponent<TextMesh>().text = availableFormations[p1FormationCounter];	//loads default formation
 		p1PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p1TeamCounter).x / barScaleDivider,
 		                                              p1PowerBar.transform.localScale.y,
 		                                              p1PowerBar.transform.localScale.z);
@@ -137,58 +139,101 @@ public class ConfigController : MonoBehaviour {
                 case "National":
                     print("National");
                     PlayerPrefs.SetInt("TeamClass",0);
-                    p1Team.GetComponent<Renderer>().material.mainTexture = availableNationalTeams[0];
-                    p2Team.GetComponent<Renderer>().material.mainTexture = availableNationalTeams[0];
-                    p1TeamSel.SetActive(true);
-                    p1FormationSel.SetActive(true);
-                    p2TeamSel.SetActive(true);
-                    p2FormationSel.SetActive(true);
-                    timeSel.SetActive(true);
+                    p1Team.GetComponent<Renderer>().material.mainTexture = availableTeams[0];
+                    p2Team.GetComponent<Renderer>().material.mainTexture = availableTeams[0];
+                    p1TeamCounter = 0;
+                    p2TeamCounter = 0;
                     National.SetActive(false);
                     IranFC.SetActive(false);
                     WorldFC.SetActive(false);
+                    if (isTournamentMode == 1)
+                    {
+                        p1TeamSel.SetActive(true);
+                        p1FormationSel.SetActive(true);
+                        p2TeamSel.SetActive(false);
+                        p2FormationSel.SetActive(false);
+                        timeSel.SetActive(false);
+
+                        p1TeamSel.transform.position = new Vector3(0, 4.5f, -1);
+                        p1FormationSel.transform.position = new Vector3(0, -4.3f, -1);
+                    }
+                    else
+                    {
+                        p1TeamSel.SetActive(true);
+                        p1FormationSel.SetActive(true);
+                        p2TeamSel.SetActive(true);
+                        p2FormationSel.SetActive(true);
+                        timeSel.SetActive(true);   
+                    }
+                   
                     break;
                 case "Iran FC":
                     print("Iran FC");
                     PlayerPrefs.SetInt("TeamClass", 1);
-                    p1Team.GetComponent<Renderer>().material.mainTexture = availableIranFCTeams[0];
-                    p2Team.GetComponent<Renderer>().material.mainTexture = availableIranFCTeams[0];
-                    p1TeamSel.SetActive(true);
-                    p1FormationSel.SetActive(true);
-                    p2TeamSel.SetActive(true);
-                    p2FormationSel.SetActive(true);
-                    timeSel.SetActive(true);
+                    p1Team.GetComponent<Renderer>().material.mainTexture = availableTeams[28];
+                    p2Team.GetComponent<Renderer>().material.mainTexture = availableTeams[28];
+                    p1TeamCounter = 28;
+                    p2TeamCounter = 28;
                     National.SetActive(false);
                     IranFC.SetActive(false);
                     WorldFC.SetActive(false);
+                    if (isTournamentMode == 1)
+                    {
+                        p1TeamSel.SetActive(true);
+                        p1FormationSel.SetActive(true);
+                        p2TeamSel.SetActive(false);
+                        p2FormationSel.SetActive(false);
+                        timeSel.SetActive(false);
+
+                        p1TeamSel.transform.position = new Vector3(0, 4.5f, -1);
+                        p1FormationSel.transform.position = new Vector3(0, -4.3f, -1);
+                    }
+                    else
+                    {
+                        p1TeamSel.SetActive(true);
+                        p1FormationSel.SetActive(true);
+                        p2TeamSel.SetActive(true);
+                        p2FormationSel.SetActive(true);
+                        timeSel.SetActive(true);
+                    }
                     break;
                 case "World FC":
                     print("World FC");
                     PlayerPrefs.SetInt("TeamClass", 2);
-                    p1Team.GetComponent<Renderer>().material.mainTexture = availableWorldFCTeams[0];
-                    p2Team.GetComponent<Renderer>().material.mainTexture = availableWorldFCTeams[0];
-                    p1TeamSel.SetActive(true);
-                    p1FormationSel.SetActive(true);
-                    p2TeamSel.SetActive(true);
-                    p2FormationSel.SetActive(true);
-                    timeSel.SetActive(true);
+                    p1Team.GetComponent<Renderer>().material.mainTexture = availableTeams[44];
+                    p2Team.GetComponent<Renderer>().material.mainTexture = availableTeams[44];
+                    p1TeamCounter = 44;
+                    p2TeamCounter = 44;
                     National.SetActive(false);
                     IranFC.SetActive(false);
                     WorldFC.SetActive(false);
+                    if (isTournamentMode == 1)
+                    {
+                        p1TeamSel.SetActive(true);
+                        p1FormationSel.SetActive(true);
+                        p2TeamSel.SetActive(false);
+                        p2FormationSel.SetActive(false);
+                        timeSel.SetActive(false);
+
+                        p1TeamSel.transform.position = new Vector3(0, 4.5f, -1);
+                        p1FormationSel.transform.position = new Vector3(0, -4.3f, -1);
+                    }
+                    else
+                    {
+                        p1TeamSel.SetActive(true);
+                        p1FormationSel.SetActive(true);
+                        p2TeamSel.SetActive(true);
+                        p2FormationSel.SetActive(true);
+                        timeSel.SetActive(true);
+                    }
                     break;
 
                 case "p1-TBR":
-                    print(PlayerPrefs.GetInt("TeamClass") + p1TeamCounter);
 					playSfx(tapSfx);
 					StartCoroutine(animateButton(objectHit));	//button scale-animation to user input
 					p1TeamCounter++;			//cycle through available team indexs for this player. This is the main index value.
 					fixCounterLengths();		//when reached to the last option, start from the first index of the other side.
-                    if (PlayerPrefs.GetInt("TeamClass") == 0)
-                        p1Team.GetComponent<Renderer>().material.mainTexture = availableNationalTeams[p1TeamCounter]; //set the flag on UI
-                    else if (PlayerPrefs.GetInt("TeamClass") == 1)
-                        p1Team.GetComponent<Renderer>().material.mainTexture = availableIranFCTeams[p1TeamCounter]; //set the flag on UI
-                    else if (PlayerPrefs.GetInt("TeamClass") == 2)
-                        p1Team.GetComponent<Renderer>().material.mainTexture = availableWorldFCTeams[p1TeamCounter]; //set the flag on UI
+                        p1Team.GetComponent<Renderer>().material.mainTexture = availableTeams[p1TeamCounter]; //set the flag on UI
 
                     p1PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p1TeamCounter).x / barScaleDivider,
 					                                              p1PowerBar.transform.localScale.y,
@@ -206,12 +251,8 @@ public class ConfigController : MonoBehaviour {
 					StartCoroutine(animateButton(objectHit));	//button scale-animation to user input
 					p1TeamCounter--;			//cycle through available team indexs for this player. This is the main index value.
 					fixCounterLengths();		//when reached to the last option, start from the first index of the other side.
-                    if (PlayerPrefs.GetInt("TeamClass") == 0)
-                        p1Team.GetComponent<Renderer>().material.mainTexture = availableNationalTeams[p1TeamCounter]; //set the flag on UI
-                    else if (PlayerPrefs.GetInt("TeamClass") == 1)
-                        p1Team.GetComponent<Renderer>().material.mainTexture = availableIranFCTeams[p1TeamCounter]; //set the flag on UI
-                    else if (PlayerPrefs.GetInt("TeamClass") == 2)
-                        p1Team.GetComponent<Renderer>().material.mainTexture = availableWorldFCTeams[p1TeamCounter]; //set the flag on UI
+                        p1Team.GetComponent<Renderer>().material.mainTexture = availableTeams[p1TeamCounter]; //set the flag on UI
+
                     p1PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p1TeamCounter).x / barScaleDivider,
 					                                              p1PowerBar.transform.localScale.y,
 					                                              p1PowerBar.transform.localScale.z);
@@ -228,12 +269,8 @@ public class ConfigController : MonoBehaviour {
 					StartCoroutine(animateButton(objectHit));	//button scale-animation to user input
 					p2TeamCounter++;			//cycle through available team indexs for this player. This is the main index value.
 					fixCounterLengths();		//when reached to the last option, start from the first index of the other side.
-                    if (PlayerPrefs.GetInt("TeamClass") == 0)
-                        p2Team.GetComponent<Renderer>().material.mainTexture = availableNationalTeams[p2TeamCounter]; //set the flag on UI
-                    else if (PlayerPrefs.GetInt("TeamClass") == 1)
-                        p2Team.GetComponent<Renderer>().material.mainTexture = availableIranFCTeams[p2TeamCounter]; //set the flag on UI
-                    else if (PlayerPrefs.GetInt("TeamClass") == 2)
-                        p2Team.GetComponent<Renderer>().material.mainTexture = availableWorldFCTeams[p2TeamCounter]; //set the flag on UI
+                        p2Team.GetComponent<Renderer>().material.mainTexture = availableTeams[p2TeamCounter]; //set the flag on UI
+
                     p2PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p2TeamCounter).x / barScaleDivider,
 					                                              p2PowerBar.transform.localScale.y,
 					                                              p2PowerBar.transform.localScale.z);
@@ -250,12 +287,7 @@ public class ConfigController : MonoBehaviour {
 					StartCoroutine(animateButton(objectHit));	//button scale-animation to user input
 					p2TeamCounter--;			//cycle through available team indexs for this player. This is the main index value.
 					fixCounterLengths();		//when reached to the last option, start from the first index of the other side.
-                    if (PlayerPrefs.GetInt("TeamClass") == 0)
-                        p2Team.GetComponent<Renderer>().material.mainTexture = availableNationalTeams[p2TeamCounter]; //set the flag on UI
-                   else if (PlayerPrefs.GetInt("TeamClass") == 1)
-                        p2Team.GetComponent<Renderer>().material.mainTexture = availableIranFCTeams[p2TeamCounter]; //set the flag on UI
-                   else if (PlayerPrefs.GetInt("TeamClass") == 2)
-                        p2Team.GetComponent<Renderer>().material.mainTexture = availableWorldFCTeams[p2TeamCounter]; //set the flag on UI
+                        p2Team.GetComponent<Renderer>().material.mainTexture = availableTeams[p2TeamCounter]; //set the flag on UI
                     p2PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p2TeamCounter).x / barScaleDivider,
 					                                              p2PowerBar.transform.localScale.y,
 					                                              p2PowerBar.transform.localScale.z);
@@ -381,39 +413,61 @@ public class ConfigController : MonoBehaviour {
 		if(p1FormationCounter < 0)
 			p1FormationCounter = availableFormations.Length - 1;
 
-		//Player-1 team
-		if(p1TeamCounter > availableNationalTeams.Length - 1 || p1TeamCounter > availableIranFCTeams.Length - 1 || p1TeamCounter > availableWorldFCTeams.Length - 1)
-			p1TeamCounter = 0;
-		if(p1TeamCounter < 0)
+        //Player-1 team
+        if (PlayerPrefs.GetInt("TeamClass") == 0) // if is National
         {
-            if(PlayerPrefs.GetInt("TeamClass") == 0)
-            p1TeamCounter = availableNationalTeams.Length - 1;
-            else if (PlayerPrefs.GetInt("TeamClass") == 1)
-                p1TeamCounter = availableIranFCTeams.Length - 1;
-            else if (PlayerPrefs.GetInt("TeamClass") == 2)
-                p1TeamCounter = availableWorldFCTeams.Length - 1;
+            if (p1TeamCounter > 27)
+                p1TeamCounter = 0;
+            if (p1TeamCounter < 0)
+                p1TeamCounter = 27;
         }
-			
-			
-		//Player-2 formation
-		if(p2FormationCounter > availableFormations.Length - 1)
+        else if (PlayerPrefs.GetInt("TeamClass") == 1) // if is Iran FC
+        {
+            if (p1TeamCounter > 43)
+                p1TeamCounter = 28;
+            if (p1TeamCounter < 28)
+                p1TeamCounter = 43;
+        }
+        else if (PlayerPrefs.GetInt("TeamClass") == 2) // if is World FC
+        {
+            if (p1TeamCounter > availableTeams.Length - 1)
+                p1TeamCounter = 44;
+            if (p1TeamCounter < 44)
+                p1TeamCounter = availableTeams.Length - 1;
+        }
+
+
+
+        //Player-2 formation
+        if (p2FormationCounter > availableFormations.Length - 1)
 			p2FormationCounter = 0;
 		if(p2FormationCounter < 0)
 			p2FormationCounter = availableFormations.Length - 1;
 
-		//Player-2 team
-		if(p2TeamCounter > availableNationalTeams.Length - 1 || p2TeamCounter > availableIranFCTeams.Length - 1 || p2TeamCounter > availableWorldFCTeams.Length - 1)
-			p2TeamCounter = 0;
-		if(p2TeamCounter < 0)
+        //Player-2 team
+        if (PlayerPrefs.GetInt("TeamClass") == 0) // if is National
         {
-            if (PlayerPrefs.GetInt("TeamClass") == 0)
-                p2TeamCounter = availableNationalTeams.Length - 1;
-         //   p1Team.GetComponent<MeshRenderer>().materials[0] = FirstTeams[0];
-            else if (PlayerPrefs.GetInt("TeamClass") == 1)
-                p2TeamCounter = availableIranFCTeams.Length - 1;
-            else if (PlayerPrefs.GetInt("TeamClass") == 2)
-                p2TeamCounter = availableWorldFCTeams.Length - 1;
+            if (p2TeamCounter > 27)
+                p2TeamCounter = 0;
+            if (p2TeamCounter < 0)
+                p2TeamCounter = 27;
         }
+        else if (PlayerPrefs.GetInt("TeamClass") == 1) // if is Iran FC
+        {
+            if (p2TeamCounter > 43)
+                p2TeamCounter = 28;
+            if (p2TeamCounter < 28)
+                p2TeamCounter = 43;
+        }
+        else if (PlayerPrefs.GetInt("TeamClass") == 2) // if is World FC
+        {
+            if (p2TeamCounter > availableTeams.Length - 1)
+                p2TeamCounter = 44;
+            if (p2TeamCounter < 44)
+                p2TeamCounter = availableTeams.Length - 1;
+        }
+
+
 
         //GameTime
         if (timeCounter > availableTimes.Length - 1)
