@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/FingerSoccerKit/C#-Assets/Scenes-C#/Menu-c#.unity
+  isLoaded: 1
+  isActive: 1
