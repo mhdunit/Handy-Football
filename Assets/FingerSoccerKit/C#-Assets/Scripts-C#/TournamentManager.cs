@@ -16,7 +16,7 @@ public class TournamentManager : MonoBehaviour {
 
 	public static int torunamentLevel;		//starting level. then proceeds to 1, 2 and 3.
 
-	public Texture2D[] availableFlags;		//available flags for teams (11 flag in total)
+	public Texture2D[] availableFlags;		//available flags for teams (60 flag in total)
 	public GameObject[] LevelATeams;		//we have 8 teams in total. 1 player and 7 AI opponen. Player Always starts in position 1.
 	public GameObject[] LevelBTeams;		//we have 4 winners teams in level B. Player Always starts in position 1.
 	public GameObject[] LevelCTeams;		//we have 2 winners teams in level C
@@ -67,7 +67,6 @@ public class TournamentManager : MonoBehaviour {
 
 
 	void Update () {
-
 		if(canTap) {
 			StartCoroutine(tapManager());
 		}
@@ -123,9 +122,17 @@ public class TournamentManager : MonoBehaviour {
 
 		//set other 7 AI teams and their flags (and avoid selecting human player team a an AI again)
 		List<int> cpuTeamsIndex = new List<int>();
-		for(int i = 0; i < 8; i++) {
-			if(i != playerFlag)
-				cpuTeamsIndex.Add(i);
+		for(int i = 0; i < availableFlags.Length; i++) {
+            if (i != playerFlag)
+            {
+                if (PlayerPrefs.GetInt("TeamClass") == 0 && i >= 0 && i <= 27)
+                    cpuTeamsIndex.Add(i);
+                else if (PlayerPrefs.GetInt("TeamClass") == 1 && i >= 28 && i <= 43)
+                    cpuTeamsIndex.Add(i);
+                else if (PlayerPrefs.GetInt("TeamClass") == 2 && i >= 44 && i <= 59)
+                    cpuTeamsIndex.Add(i);
+            }
+            
 		}
 		
 		if(cpuTeamsIndex.Count == 8)
@@ -135,10 +142,10 @@ public class TournamentManager : MonoBehaviour {
 		
 		for(int j = 0; j < 8; j++) {
 			if(j == 0) {
-				LevelATeams[j].GetComponent<Renderer>().material.mainTexture = availableFlags[playerFlag];
+                    LevelATeams[j].GetComponent<Renderer>().material.mainTexture = availableFlags[playerFlag];
 				PlayerPrefs.SetInt("TournamentTeams" + j.ToString(), playerFlag);
 			} else {
-				LevelATeams[j].GetComponent<Renderer>().material.mainTexture = availableFlags[cpuTeamsIndex[j-1]];
+                    LevelATeams[j].GetComponent<Renderer>().material.mainTexture = availableFlags[cpuTeamsIndex[j-1]];
 				PlayerPrefs.SetInt("TournamentTeams" + j.ToString(), cpuTeamsIndex[j-1]);
 			}
 		}
