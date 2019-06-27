@@ -21,8 +21,9 @@ public class TournamentManager : MonoBehaviour {
 	public GameObject[] LevelBTeams;		//we have 4 winners teams in level B. Player Always starts in position 1.
 	public GameObject[] LevelCTeams;		//we have 2 winners teams in level C
 	public GameObject[] LevelDTeams;		//we have 1 winner teams in level D
+    public GameObject[] LevelETeams;        //we have 1 winner teams in level E
 
-	public GameObject btnStart;
+    public GameObject btnStart;
 	public GameObject btnStartText;
 	public GameObject btnExit;
 
@@ -36,10 +37,9 @@ public class TournamentManager : MonoBehaviour {
 		Time.timeScale = 1.0f;
 		Time.fixedDeltaTime = 0.02f;
 
-		//Init Torunament Settings
-
-		//Get torunament Level
-		torunamentLevel = PlayerPrefs.GetInt("TorunamentLevel");
+        //Init Torunament Settings
+        //Get torunament Level
+        torunamentLevel = PlayerPrefs.GetInt("TorunamentLevel");
 
 		//if we are starting a new torunament
 		if(torunamentLevel == 0) {
@@ -60,14 +60,19 @@ public class TournamentManager : MonoBehaviour {
 		if(torunamentLevel == 3) {
 			setLevelDSettings();
 		}
-
-		//other settings
-		canTap = true;
+        if (torunamentLevel == 4)
+        {
+            setLevelESettings();
+        }
+       
+        //other settings
+        canTap = true;
 	}
 
 
 	void Update () {
-		if(canTap) {
+        print("Torunament Level : " + torunamentLevel);
+        if (canTap) {
 			StartCoroutine(tapManager());
 		}
 
@@ -90,7 +95,7 @@ public class TournamentManager : MonoBehaviour {
 
 	void AdvanceInTournament() {
 
-		if(torunamentLevel >= 3)
+		if(torunamentLevel >= 4)
 			return;
 
 		if(Input.GetKeyDown(KeyCode.W)) {
@@ -120,7 +125,7 @@ public class TournamentManager : MonoBehaviour {
 		//set player team. Note that index 0 of availableTeams array always refers to human player team
 		int playerFlag = PlayerPrefs.GetInt("PlayerFlag", 0);
 
-		//set other 7 AI teams and their flags (and avoid selecting human player team a an AI again)
+		//set other 15 AI teams and their flags (and avoid selecting human player team a an AI again)
 		List<int> cpuTeamsIndex = new List<int>();
 		for(int i = 0; i < availableFlags.Length; i++) {
             if (i != playerFlag)
@@ -135,12 +140,12 @@ public class TournamentManager : MonoBehaviour {
             
 		}
 		
-		if(cpuTeamsIndex.Count == 8)
+		if(cpuTeamsIndex.Count == 16)
 			cpuTeamsIndex.RemoveAt(cpuTeamsIndex.Count - 1);
 		
 		shuffleList(cpuTeamsIndex);
 		
-		for(int j = 0; j < 8; j++) {
+		for(int j = 0; j < 16; j++) {
 			if(j == 0) {
                     LevelATeams[j].GetComponent<Renderer>().material.mainTexture = availableFlags[playerFlag];
 				PlayerPrefs.SetInt("TournamentTeams" + j.ToString(), playerFlag);
@@ -158,12 +163,12 @@ public class TournamentManager : MonoBehaviour {
 
 	void setLevelBSettings() {
 		//set team flags again
-		for(int i = 0; i < 8; i++) {
+		for(int i = 0; i < 16; i++) {
 			LevelATeams[i].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("TournamentTeams" + i.ToString())];
 		}
 		
-		//construc 3 fake match result for other events in Level A of tournament
-		for(int j = 0; j < 4; j++) {
+		//construc 7 fake match result for other events in Level A of tournament
+		for(int j = 0; j < 8; j++) {
 			//override for player
 			if(j == 0) {
 				PlayerPrefs.SetInt("MatchResultsLevelA" + j.ToString(), PlayerPrefs.GetInt("TorunamentMatchResult"));
@@ -177,7 +182,7 @@ public class TournamentManager : MonoBehaviour {
 		}
 
 		//set group B teams (transfer the winners from Level A to level B
-		for(int k = 0; k < 4; k++) {
+		for(int k = 0; k < 8; k++) {
 			if(PlayerPrefs.GetInt("MatchResultsLevelA" + k.ToString()) == 1) 
 				PlayerPrefs.SetInt( "WinnersLevelA" + k.ToString(), PlayerPrefs.GetInt("TournamentTeams" + (k*2).ToString()) );
 			else
@@ -202,16 +207,16 @@ public class TournamentManager : MonoBehaviour {
 
 	void setLevelCSettings() {
 		//set team flags again
-		for(int i = 0; i < 8; i++) {
+		for(int i = 0; i < 16; i++) {
 			LevelATeams[i].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("TournamentTeams" + i.ToString())];
 		}
-		for(int j = 0; j < 4; j++) {
+		for(int j = 0; j < 8; j++) {
 			LevelBTeams[j].GetComponent<Renderer>().enabled = true;
 			LevelBTeams[j].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelA" + j.ToString())];
 		}
 
 		//construc 1 fake match result for other eventsin Level B of tournament
-		for(int k = 0; k < 2; k++) {
+		for(int k = 0; k < 4; k++) {
 			//override for player
 			if(k == 0) {
 				PlayerPrefs.SetInt("MatchResultsLevelB" + k.ToString(), PlayerPrefs.GetInt("TorunamentMatchResult"));
@@ -225,7 +230,7 @@ public class TournamentManager : MonoBehaviour {
 		}
 
 		//set group C teams (transfer the winners from Level B to level C
-		for(int m = 0; m < 2; m++) {
+		for(int m = 0; m < 4; m++) {
 			if(PlayerPrefs.GetInt("MatchResultsLevelB" + m.ToString()) == 1) 
 				PlayerPrefs.SetInt( "WinnersLevelB" + m.ToString(), PlayerPrefs.GetInt("WinnersLevelA" + (m*2).ToString()) );
 			else
@@ -248,43 +253,113 @@ public class TournamentManager : MonoBehaviour {
 		
 	}
 
+    void setLevelDSettings()
+    {
+        //set team flags again
+        for (int i = 0; i < 16; i++)
+        {
+            LevelATeams[i].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("TournamentTeams" + i.ToString())];
+        }
+        for (int j = 0; j < 8; j++)
+        {
+            LevelBTeams[j].GetComponent<Renderer>().enabled = true;
+            LevelBTeams[j].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelA" + j.ToString())];
+        }
+        for (int k = 0; k < 4; k++)
+        {
+            LevelCTeams[k].GetComponent<Renderer>().enabled = true;
+            LevelCTeams[k].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelB" + k.ToString())];
+        }
+        //construc 1 fake match result for other eventsin Level C of tournament
+        for (int k = 0; k < 2; k++)
+        {
+            //override for player
+            if (k == 0)
+            {
+                PlayerPrefs.SetInt("MatchResultsLevelC" + k.ToString(), PlayerPrefs.GetInt("TorunamentMatchResult"));
+            }
+            else
+            {
+                float rnd = Random.value;
+                if (rnd >= 0.5f)
+                    PlayerPrefs.SetInt("MatchResultsLevelC" + k.ToString(), 1);
+                else
+                    PlayerPrefs.SetInt("MatchResultsLevelC" + k.ToString(), 0);
+            }
+        }
 
-	void setLevelDSettings() {
-		//set team flags again
-		for(int i = 0; i < 8; i++) {
-			LevelATeams[i].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("TournamentTeams" + i.ToString())];
-		}
-		for(int j = 0; j < 4; j++) {
-			LevelBTeams[j].GetComponent<Renderer>().enabled = true;
-			LevelBTeams[j].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelA" + j.ToString())];
-		}
-		for(int k = 0; k < 2; k++) {
-			LevelCTeams[k].GetComponent<Renderer>().enabled = true;
-			LevelCTeams[k].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelB" + k.ToString())];
-		}
+        //set group C teams (transfer the winners from Level B to level C
+        for (int m = 0; m < 2; m++)
+        {
+            if (PlayerPrefs.GetInt("MatchResultsLevelC" + m.ToString()) == 1)
+                PlayerPrefs.SetInt("WinnersLevelC" + m.ToString(), PlayerPrefs.GetInt("WinnersLevelB" + (m * 2).ToString()));
+            else
+                PlayerPrefs.SetInt("WinnersLevelC" + m.ToString(), PlayerPrefs.GetInt("WinnersLevelB" + ((m * 2) + 1).ToString()));
 
-		//declae the winner
-		LevelDTeams[0].GetComponent<Renderer>().enabled = true;
-		if(PlayerPrefs.GetInt("TorunamentMatchResult") == 1) {
+            LevelDTeams[m].GetComponent<Renderer>().enabled = true;
+            LevelDTeams[m].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelC" + m.ToString())];
+        }
+        //set start button text
+        if (PlayerPrefs.GetInt("TorunamentMatchResult") == 1)
+        {
+            btnStartText.GetComponent<TextMesh>().text = "Continue";
+            btnStart.GetComponent<BoxCollider>().enabled = true;
+        }
+        else
+        {
+            btnStartText.GetComponent<TextMesh>().text = "Exit";
+            btnStart.GetComponent<BoxCollider>().enabled = true;
+            btnExit.SetActive(false);
+        }
+    }
 
-			LevelDTeams[0].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelB0")];
+    void setLevelESettings()
+    {
+        //set team flags again
+        for (int i = 0; i < 16; i++)
+        {
+            LevelATeams[i].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("TournamentTeams" + i.ToString())];
+        }
+        for (int j = 0; j < 8; j++)
+        {
+            LevelBTeams[j].GetComponent<Renderer>().enabled = true;
+            LevelBTeams[j].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelA" + j.ToString())];
+        }
+        for (int k = 0; k < 4; k++)
+        {
+            LevelCTeams[k].GetComponent<Renderer>().enabled = true;
+            LevelCTeams[k].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelB" + k.ToString())];
+        }
+        for (int L = 0; L < 2; L++)
+        {
+            LevelDTeams[L].GetComponent<Renderer>().enabled = true;
+            LevelDTeams[L].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelC" + L.ToString())];
+        }
 
-			btnStartText.GetComponent<TextMesh>().text = "Finish";
-			btnStart.GetComponent<BoxCollider>().enabled = true;
-			btnExit.SetActive(false);
+        //declae the winner
+        LevelETeams[0].GetComponent<Renderer>().enabled = true;
+        if (PlayerPrefs.GetInt("TorunamentMatchResult") == 1)
+        {
 
-		} else {
+            LevelETeams[0].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelC0")];
 
-			LevelDTeams[0].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelB1")];
+            btnStartText.GetComponent<TextMesh>().text = "Finish";
+            btnStart.GetComponent<BoxCollider>().enabled = true;
+            btnExit.SetActive(false);
 
-			btnStartText.GetComponent<TextMesh>().text = "Oh No!!";
-			btnStart.GetComponent<BoxCollider>().enabled = true;
-			btnExit.SetActive(false);
-		}
-	}
+        }
+        else
+        {
 
+            LevelETeams[0].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelC1")];
 
-	private RaycastHit hitInfo;
+            btnStartText.GetComponent<TextMesh>().text = "Oh No!!";
+            btnStart.GetComponent<BoxCollider>().enabled = true;
+            btnExit.SetActive(false);
+        }
+    }
+
+    private RaycastHit hitInfo;
 	private Ray ray;
 	IEnumerator tapManager (){
 		
@@ -356,20 +431,31 @@ public class TournamentManager : MonoBehaviour {
 		//if we have won the cup, we should exit the tournament
 		if(torunamentLevel == 3 && PlayerPrefs.GetInt("TorunamentMatchResult") == 1) {
 
-			//grant any score, money, bonus, etc, in here...
-			//for example, give player (winner) 5000 coin as the prize
-			int playerMoney = PlayerPrefs.GetInt("PlayerMoney");
-			playerMoney += 5000;
-			PlayerPrefs.SetInt("PlayerMoney", playerMoney);
+            //set player & AI teams
+            PlayerPrefs.SetInt("PlayerFlag", PlayerPrefs.GetInt("WinnersLevelC0"));
+            PlayerPrefs.SetInt("OpponentFlag", PlayerPrefs.GetInt("WinnersLevelC1"));
+            PlayerPrefs.SetInt("GameMode", 0); //Player vs AI
 
-			//reset tournament settings and advancements
-			resetTournamentSettings();
+            SceneManager.LoadScene("Game-c#");
+        }
+        //if we have won the cup, we should exit the tournament
+        if (torunamentLevel == 4 && PlayerPrefs.GetInt("TorunamentMatchResult") == 1)
+        {
 
-			SceneManager.LoadScene("Menu-c#");
-		}
+            //grant any score, money, bonus, etc, in here...
+            //for example, give player (winner) 5000 coin as the prize
+            int playerMoney = PlayerPrefs.GetInt("PlayerMoney");
+            playerMoney += 5000;
+            PlayerPrefs.SetInt("PlayerMoney", playerMoney);
 
-		//if we have lost the match, we should exit
-		if(torunamentLevel > 0 && torunamentLevel <= 3 && PlayerPrefs.GetInt("TorunamentMatchResult") == 0) {
+            //reset tournament settings and advancements
+            resetTournamentSettings();
+
+            SceneManager.LoadScene("Menu-c#");
+        }
+
+        //if we have lost the match, we should exit
+        if (torunamentLevel > 0 && torunamentLevel <= 4 && PlayerPrefs.GetInt("TorunamentMatchResult") == 0) {
 
 			//reset tournament settings and advancements
 			resetTournamentSettings();
@@ -457,19 +543,25 @@ public class TournamentManager : MonoBehaviour {
 		PlayerPrefs.DeleteKey("TorunamentLevel");
 		PlayerPrefs.DeleteKey("TorunamentMatchResult");
 
-		for(int i = 0; i < 8; i++)
+		for(int i = 0; i < 16; i++)
 			PlayerPrefs.DeleteKey("TournamentTeams" + i.ToString());
 
-		for(int j = 0; j < 4; j++)
+		for(int j = 0; j < 8; j++)
 			PlayerPrefs.DeleteKey("MatchResultsLevelA" + j.ToString());
 
-		for(int k = 0; k < 4; k++)
+		for(int k = 0; k < 8; k++)
 			PlayerPrefs.DeleteKey("WinnersLevelA" + k.ToString());
 
-		for(int l = 0; l < 2; l++)
+		for(int l = 0; l < 4; l++)
 			PlayerPrefs.DeleteKey("MatchResultsLevelB" + l.ToString());
 
-		for(int m = 0; m < 2; m++)
+		for(int m = 0; m < 4; m++)
 			PlayerPrefs.DeleteKey("WinnersLevelB" + m.ToString());
-	}
+
+        for (int l = 0; l < 2; l++)
+            PlayerPrefs.DeleteKey("MatchResultsLevelC" + l.ToString());
+
+        for (int m = 0; m < 2; m++)
+            PlayerPrefs.DeleteKey("WinnersLevelC" + m.ToString());
+    }
 }

@@ -168,7 +168,7 @@ public class GlobalGameManager : MonoBehaviour {
 		switch(PlayerPrefs.GetInt("GameTime")) {
 			case 0:
 				gameTimer = 180;
-				break;
+                break;
 			case 1:
 				gameTimer = 300;
 				break;
