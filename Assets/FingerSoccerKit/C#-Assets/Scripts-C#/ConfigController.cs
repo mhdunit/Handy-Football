@@ -47,8 +47,10 @@ public class ConfigController : MonoBehaviour {
 	public GameObject p1FormationLabel;			//UI 3d text object
 	public GameObject p2FormationLabel;			//UI 3d text object
 	public GameObject gameTimeLabel;			//UI 3d text object
+    int TeamUnlockTemp;
+    int TeamUnlockTempReverse;
 
-	private int p1FormationCounter = 0;			//Actual player-1 formation index
+    private int p1FormationCounter = 0;			//Actual player-1 formation index
 	private int p1TeamCounter = 0;				//Actual player-1 team index
 	private int p2FormationCounter = 0;			//Actual player-2 formation index
 	private int p2TeamCounter = 0;				//Actual player-2 team index
@@ -58,7 +60,7 @@ public class ConfigController : MonoBehaviour {
 	// Init. Updates the 3d texts with saved values fetched from playerprefs.
 	//***************************************************************************
 	void Awake (){
-
+        PlayerPrefs.SetInt("Team" + availableTeams[0] + "LockState", 3);
         //check if this config scene is getting used for tournament or normal play mode
         isTournamentMode = PlayerPrefs.GetInt("IsTournament");
 
@@ -84,20 +86,10 @@ public class ConfigController : MonoBehaviour {
         }
 
         p1FormationLabel.GetComponent<TextMesh>().text = availableFormations[p1FormationCounter];	//loads default formation
-		p1PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p1TeamCounter).x / barScaleDivider,
-		                                              p1PowerBar.transform.localScale.y,
-		                                              p1PowerBar.transform.localScale.z);
-		p1TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p1TeamCounter).y / barScaleDivider,
-		                                             p1TimeBar.transform.localScale.y,
-		                                             p1TimeBar.transform.localScale.z);
+
 
 		p2FormationLabel.GetComponent<TextMesh>().text = availableFormations[p2FormationCounter];	//loads default formation
-		p2PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p2TeamCounter).x / barScaleDivider,
-		                                              p2PowerBar.transform.localScale.y,
-		                                              p2PowerBar.transform.localScale.z);
-		p2TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p2TeamCounter).y / barScaleDivider,
-		                                             p2TimeBar.transform.localScale.y,
-		                                             p2TimeBar.transform.localScale.z);
+
 
 		gameTimeLabel.GetComponent<TextMesh>().text = availableTimes[timeCounter];				//loads default game-time
 	}
@@ -105,8 +97,15 @@ public class ConfigController : MonoBehaviour {
 	//*****************************************************************************
 	// FSM
 	//*****************************************************************************
-	void Update (){	
-		if(canTap) {
+	void Update (){
+      //  print("TeamClass : " + PlayerPrefs.GetInt("TeamClass")+ " , " + "p1TeamCounter : " + p1TeamCounter);
+      //  print("Reverse : "+ TeamUnlockTempReverse);
+        if (Input.GetKey(KeyCode.R))
+        {
+            PlayerPrefs.DeleteAll();
+            print("PlayerPrefs.DeleteAll");
+        }
+        if (canTap) {
 			StartCoroutine(tapManager());
 		}
 
@@ -137,13 +136,43 @@ public class ConfigController : MonoBehaviour {
 			switch(objectHit.name) {
 
                 case "National":
-                    print("National");
+                //    print("National");
                     PlayerPrefs.SetInt("TeamClass",0);
-                    p1Team.GetComponent<Renderer>().material.mainTexture = availableTeams[0];
-                    p2Team.GetComponent<Renderer>().material.mainTexture = availableTeams[0];
-                    p1TeamCounter = 0;
-                    p2TeamCounter = 0;
-                    National.SetActive(false);
+                    for (int i = 0; i < 28; i++)
+                    {
+                       if(PlayerPrefs.GetInt("Team" + availableTeams[i] + "LockState") == 3)
+                        {
+                            p1TeamCounter = i;
+                            p1Team.GetComponent<Renderer>().material.mainTexture = availableTeams[p1TeamCounter];                     
+                            p1PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p1TeamCounter).x / barScaleDivider,
+                                              p1PowerBar.transform.localScale.y,
+                                              p1PowerBar.transform.localScale.z);
+                            p1TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p1TeamCounter).y / barScaleDivider,
+                                                                         p1TimeBar.transform.localScale.y,
+                                                                         p1TimeBar.transform.localScale.z);
+                            p2TeamCounter = i;
+                            p2Team.GetComponent<Renderer>().material.mainTexture = availableTeams[p2TeamCounter];
+                            p2PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p2TeamCounter).x / barScaleDivider,
+                                              p2PowerBar.transform.localScale.y,
+                                              p2PowerBar.transform.localScale.z);
+                            p2TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p2TeamCounter).y / barScaleDivider,
+                                                                         p2TimeBar.transform.localScale.y,
+                                                                         p2TimeBar.transform.localScale.z);
+                            TeamUnlockTemp = i;
+                            break;
+                        }
+                    }
+                    for (int i = 27; i > 0; i--)
+                    {
+                        if (PlayerPrefs.GetInt("Team" + availableTeams[i] + "LockState") == 3)
+                        {
+                            TeamUnlockTempReverse = i;
+                            break;
+                        }
+                    }
+
+
+                        National.SetActive(false);
                     IranFC.SetActive(false);
                     WorldFC.SetActive(false);
                     if (isTournamentMode == 1)
@@ -168,12 +197,41 @@ public class ConfigController : MonoBehaviour {
                    
                     break;
                 case "Iran FC":
-                    print("Iran FC");
+                //    print("Iran FC");
                     PlayerPrefs.SetInt("TeamClass", 1);
-                    p1Team.GetComponent<Renderer>().material.mainTexture = availableTeams[28];
-                    p2Team.GetComponent<Renderer>().material.mainTexture = availableTeams[28];
-                    p1TeamCounter = 28;
-                    p2TeamCounter = 28;
+                    for (int i = 28; i < 44; i++)
+                    {
+                        if (PlayerPrefs.GetInt("Team" + availableTeams[i] + "LockState") == 3)
+                        {
+                            p1TeamCounter = i;
+                            p1Team.GetComponent<Renderer>().material.mainTexture = availableTeams[p1TeamCounter];
+                            p1PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p1TeamCounter).x / barScaleDivider,
+                                              p1PowerBar.transform.localScale.y,
+                                              p1PowerBar.transform.localScale.z);
+                            p1TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p1TeamCounter).y / barScaleDivider,
+                                                                         p1TimeBar.transform.localScale.y,
+                                                                         p1TimeBar.transform.localScale.z);
+                            p2TeamCounter = i;
+                            p2Team.GetComponent<Renderer>().material.mainTexture = availableTeams[p2TeamCounter];
+                            p2PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p2TeamCounter).x / barScaleDivider,
+                                              p2PowerBar.transform.localScale.y,
+                                              p2PowerBar.transform.localScale.z);
+                            p2TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p2TeamCounter).y / barScaleDivider,
+                                                                         p2TimeBar.transform.localScale.y,
+                                                                         p2TimeBar.transform.localScale.z);
+                            TeamUnlockTemp = i;
+                            break;
+                        }
+                    }
+                    for (int i = 43; i > 27; i--)
+                    {
+                        if (PlayerPrefs.GetInt("Team" + availableTeams[i] + "LockState") == 3)
+                        {
+                            TeamUnlockTempReverse = i;
+                            break;
+                        }
+                    }
+                    
                     National.SetActive(false);
                     IranFC.SetActive(false);
                     WorldFC.SetActive(false);
@@ -198,12 +256,41 @@ public class ConfigController : MonoBehaviour {
                     }
                     break;
                 case "World FC":
-                    print("World FC");
+                  //  print("World FC");
                     PlayerPrefs.SetInt("TeamClass", 2);
-                    p1Team.GetComponent<Renderer>().material.mainTexture = availableTeams[44];
-                    p2Team.GetComponent<Renderer>().material.mainTexture = availableTeams[44];
-                    p1TeamCounter = 44;
-                    p2TeamCounter = 44;
+                    for (int i = 44; i < availableTeams.Length; i++)
+                    {
+                        if (PlayerPrefs.GetInt("Team" + availableTeams[i] + "LockState") == 3)
+                        {
+                            p1TeamCounter = i;
+                            p1Team.GetComponent<Renderer>().material.mainTexture = availableTeams[p1TeamCounter];
+                            p1PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p1TeamCounter).x / barScaleDivider,
+                                              p1PowerBar.transform.localScale.y,
+                                              p1PowerBar.transform.localScale.z);
+                            p1TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p1TeamCounter).y / barScaleDivider,
+                                                                         p1TimeBar.transform.localScale.y,
+                                                                         p1TimeBar.transform.localScale.z);
+                            p2TeamCounter = i;
+                            p2Team.GetComponent<Renderer>().material.mainTexture = availableTeams[p2TeamCounter];
+                            p2PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p2TeamCounter).x / barScaleDivider,
+                                              p2PowerBar.transform.localScale.y,
+                                              p2PowerBar.transform.localScale.z);
+                            p2TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p2TeamCounter).y / barScaleDivider,
+                                                                         p2TimeBar.transform.localScale.y,
+                                                                         p2TimeBar.transform.localScale.z);
+                            TeamUnlockTemp = i;
+                            break;
+                        }
+                    }
+                    for (int i = availableTeams.Length - 1; i > 43; i--)
+                    {
+                        if (PlayerPrefs.GetInt("Team" + availableTeams[i] + "LockState") == 3)
+                        {
+                            TeamUnlockTempReverse = i;
+                            break;
+                        }
+                    }
+
                     National.SetActive(false);
                     IranFC.SetActive(false);
                     WorldFC.SetActive(false);
@@ -230,37 +317,93 @@ public class ConfigController : MonoBehaviour {
 
                 case "p1-TBR":
 					playSfx(tapSfx);
-					StartCoroutine(animateButton(objectHit));	//button scale-animation to user input
-					p1TeamCounter++;			//cycle through available team indexs for this player. This is the main index value.
-					fixCounterLengths();		//when reached to the last option, start from the first index of the other side.
-                        p1Team.GetComponent<Renderer>().material.mainTexture = availableTeams[p1TeamCounter]; //set the flag on UI
+					StartCoroutine(animateButton(objectHit));   //button scale-animation to user input
 
-                    p1PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p1TeamCounter).x / barScaleDivider,
-					                                              p1PowerBar.transform.localScale.y,
-					                                              p1PowerBar.transform.localScale.z);
-				                                              	
-					p1TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p1TeamCounter).y / barScaleDivider,
-					                                             p1TimeBar.transform.localScale.y,
-					                                             p1TimeBar.transform.localScale.z);
-					yield return new WaitForSeconds(0.07f);
+                              p1TeamCounter++;        //cycle through available team indexs for this player. This is the main index value.
+                              fixCounterLengths();        //when reached to the last option, start from the first index of the other side.
+                        for (int i = p1TeamCounter; i < availableTeams.Length; i++)
+                        {
+                            
+                            if (PlayerPrefs.GetInt("Team" + availableTeams[i] + "LockState") == 3)
+                            {
+                            if (i <= TeamUnlockTempReverse)
+                            {
+                                p1Team.GetComponent<Renderer>().material.mainTexture = availableTeams[i]; //set the flag on UI
+
+                                p1PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(i).x / barScaleDivider,
+                                                  p1PowerBar.transform.localScale.y,
+                                                  p1PowerBar.transform.localScale.z);
+
+                                p1TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(i).y / barScaleDivider,
+                                                                             p1TimeBar.transform.localScale.y,
+                                                                             p1TimeBar.transform.localScale.z);
+                                p1TeamCounter = i;
+
+                            }
+                            break;                      
+                        }                       
+                    }
+                    if (p1TeamCounter > TeamUnlockTempReverse)
+                    {
+                        p1Team.GetComponent<Renderer>().material.mainTexture = availableTeams[TeamUnlockTemp]; //set the flag on UI
+
+                        p1PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(TeamUnlockTemp).x / barScaleDivider,
+                                          p1PowerBar.transform.localScale.y,
+                                          p1PowerBar.transform.localScale.z);
+
+                        p1TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(TeamUnlockTemp).y / barScaleDivider,
+                                                                     p1TimeBar.transform.localScale.y,
+                                                                     p1TimeBar.transform.localScale.z);
+                        p1TeamCounter = TeamUnlockTemp;
+                    }
+
+                    yield return new WaitForSeconds(0.07f);
 					StartCoroutine(animateButton(p1Team));
 					break;
 
 				case "p1-TBL":
 					playSfx(tapSfx);
-					StartCoroutine(animateButton(objectHit));	//button scale-animation to user input
-					p1TeamCounter--;			//cycle through available team indexs for this player. This is the main index value.
-					fixCounterLengths();		//when reached to the last option, start from the first index of the other side.
-                        p1Team.GetComponent<Renderer>().material.mainTexture = availableTeams[p1TeamCounter]; //set the flag on UI
+					StartCoroutine(animateButton(objectHit));   //button scale-animation to user input
+                    p1TeamCounter--;            //cycle through available team indexs for this player. This is the main index value.
+                    fixCounterLengths();        //when reached to the last option, start from the first index of the other side.
 
-                    p1PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p1TeamCounter).x / barScaleDivider,
-					                                              p1PowerBar.transform.localScale.y,
-					                                              p1PowerBar.transform.localScale.z);
-				                                              	
-					p1TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p1TeamCounter).y / barScaleDivider,
-					                                             p1TimeBar.transform.localScale.y,
-					                                             p1TimeBar.transform.localScale.z);
-					yield return new WaitForSeconds(0.07f);
+                    for (int i = p1TeamCounter; i >= 0; i--)
+                    {
+
+                        if (PlayerPrefs.GetInt("Team" + availableTeams[i] + "LockState") == 3)
+                        {
+                            if (i >= TeamUnlockTemp)
+                            {
+                                p1Team.GetComponent<Renderer>().material.mainTexture = availableTeams[i]; //set the flag on UI
+
+                                p1PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(i).x / barScaleDivider,
+                                                  p1PowerBar.transform.localScale.y,
+                                                  p1PowerBar.transform.localScale.z);
+
+                                p1TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(i).y / barScaleDivider,
+                                                                             p1TimeBar.transform.localScale.y,
+                                                                             p1TimeBar.transform.localScale.z);
+                                p1TeamCounter = i;
+
+                            }
+                            break;
+                        }
+                    }
+                    if (p1TeamCounter < TeamUnlockTemp)
+                    {
+                        p1Team.GetComponent<Renderer>().material.mainTexture = availableTeams[TeamUnlockTempReverse]; //set the flag on UI
+
+                        p1PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(TeamUnlockTempReverse).x / barScaleDivider,
+                                          p1PowerBar.transform.localScale.y,
+                                          p1PowerBar.transform.localScale.z);
+
+                        p1TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(TeamUnlockTempReverse).y / barScaleDivider,
+                                                                     p1TimeBar.transform.localScale.y,
+                                                                     p1TimeBar.transform.localScale.z);
+                        p1TeamCounter = TeamUnlockTempReverse;
+                    }
+
+                    yield return new WaitForSeconds(0.07f);
 					StartCoroutine(animateButton(p1Team));
 					break;
 
@@ -268,17 +411,44 @@ public class ConfigController : MonoBehaviour {
 					playSfx(tapSfx);
 					StartCoroutine(animateButton(objectHit));	//button scale-animation to user input
 					p2TeamCounter++;			//cycle through available team indexs for this player. This is the main index value.
-					fixCounterLengths();		//when reached to the last option, start from the first index of the other side.
-                        p2Team.GetComponent<Renderer>().material.mainTexture = availableTeams[p2TeamCounter]; //set the flag on UI
+					fixCounterLengths();        //when reached to the last option, start from the first index of the other side.
+                    for (int i = p2TeamCounter; i < availableTeams.Length; i++)
+                    {
 
-                    p2PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p2TeamCounter).x / barScaleDivider,
-					                                              p2PowerBar.transform.localScale.y,
-					                                              p2PowerBar.transform.localScale.z);
-				                                              	
-					p2TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p2TeamCounter).y / barScaleDivider,
-					                                             p2TimeBar.transform.localScale.y,
-					                                             p2TimeBar.transform.localScale.z);
-					yield return new WaitForSeconds(0.07f);
+                        if (PlayerPrefs.GetInt("Team" + availableTeams[i] + "LockState") == 3)
+                        {
+                            if (i <= TeamUnlockTempReverse)
+                            {
+                                p2Team.GetComponent<Renderer>().material.mainTexture = availableTeams[i]; //set the flag on UI
+
+                                p2PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(i).x / barScaleDivider,
+                                                  p2PowerBar.transform.localScale.y,
+                                                  p2PowerBar.transform.localScale.z);
+
+                                p2TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(i).y / barScaleDivider,
+                                                                             p2TimeBar.transform.localScale.y,
+                                                                             p2TimeBar.transform.localScale.z);
+                                p2TeamCounter = i;
+
+                            }
+                            break;
+                        }
+                    }
+                    if (p2TeamCounter > TeamUnlockTempReverse)
+                    {
+                        p2Team.GetComponent<Renderer>().material.mainTexture = availableTeams[TeamUnlockTemp]; //set the flag on UI
+
+                        p2PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(TeamUnlockTemp).x / barScaleDivider,
+                                          p2PowerBar.transform.localScale.y,
+                                          p2PowerBar.transform.localScale.z);
+
+                        p2TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(TeamUnlockTemp).y / barScaleDivider,
+                                                                     p2TimeBar.transform.localScale.y,
+                                                                     p2TimeBar.transform.localScale.z);
+                        p2TeamCounter = TeamUnlockTemp;
+                    }
+
+                    yield return new WaitForSeconds(0.07f);
 					StartCoroutine(animateButton(p2Team));
 					break;
 
@@ -286,16 +456,43 @@ public class ConfigController : MonoBehaviour {
 					playSfx(tapSfx);
 					StartCoroutine(animateButton(objectHit));	//button scale-animation to user input
 					p2TeamCounter--;			//cycle through available team indexs for this player. This is the main index value.
-					fixCounterLengths();		//when reached to the last option, start from the first index of the other side.
-                        p2Team.GetComponent<Renderer>().material.mainTexture = availableTeams[p2TeamCounter]; //set the flag on UI
-                    p2PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p2TeamCounter).x / barScaleDivider,
-					                                              p2PowerBar.transform.localScale.y,
-					                                              p2PowerBar.transform.localScale.z);
-				                                              	
-					p2TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(p2TeamCounter).y / barScaleDivider,
-					                                             p2TimeBar.transform.localScale.y,
-					                                             p2TimeBar.transform.localScale.z);
-					yield return new WaitForSeconds(0.07f);
+					fixCounterLengths();        //when reached to the last option, start from the first index of the other side.
+                    for (int i = p2TeamCounter; i >= 0; i--)
+                    {
+
+                        if (PlayerPrefs.GetInt("Team" + availableTeams[i] + "LockState") == 3)
+                        {
+                            if (i >= TeamUnlockTemp)
+                            {
+                                p2Team.GetComponent<Renderer>().material.mainTexture = availableTeams[i]; //set the flag on UI
+
+                                p2PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(i).x / barScaleDivider,
+                                                  p2PowerBar.transform.localScale.y,
+                                                  p2PowerBar.transform.localScale.z);
+
+                                p2TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(i).y / barScaleDivider,
+                                                                             p2TimeBar.transform.localScale.y,
+                                                                             p2TimeBar.transform.localScale.z);
+                                p2TeamCounter = i;
+
+                            }
+                            break;
+                        }
+                    }
+                    if (p2TeamCounter < TeamUnlockTemp)
+                    {
+                        p2Team.GetComponent<Renderer>().material.mainTexture = availableTeams[TeamUnlockTempReverse]; //set the flag on UI
+
+                        p2PowerBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(TeamUnlockTempReverse).x / barScaleDivider,
+                                          p2PowerBar.transform.localScale.y,
+                                          p2PowerBar.transform.localScale.z);
+
+                        p2TimeBar.transform.localScale = new Vector3(TeamsManager.getTeamSettings(TeamUnlockTempReverse).y / barScaleDivider,
+                                                                     p2TimeBar.transform.localScale.y,
+                                                                     p2TimeBar.transform.localScale.z);
+                        p2TeamCounter = TeamUnlockTempReverse;
+                    }
+                    yield return new WaitForSeconds(0.07f);
 					StartCoroutine(animateButton(p2Team));
 					break;
 			
@@ -413,28 +610,28 @@ public class ConfigController : MonoBehaviour {
 		if(p1FormationCounter < 0)
 			p1FormationCounter = availableFormations.Length - 1;
 
-        //Player-1 team
-        if (PlayerPrefs.GetInt("TeamClass") == 0) // if is National
-        {
-            if (p1TeamCounter > 27)
-                p1TeamCounter = 0;
-            if (p1TeamCounter < 0)
-                p1TeamCounter = 27;
-        }
-        else if (PlayerPrefs.GetInt("TeamClass") == 1) // if is Iran FC
-        {
-            if (p1TeamCounter > 43)
-                p1TeamCounter = 28;
-            if (p1TeamCounter < 28)
-                p1TeamCounter = 43;
-        }
-        else if (PlayerPrefs.GetInt("TeamClass") == 2) // if is World FC
-        {
-            if (p1TeamCounter > availableTeams.Length - 1)
-                p1TeamCounter = 44;
-            if (p1TeamCounter < 44)
-                p1TeamCounter = availableTeams.Length - 1;
-        }
+        ////Player-1 team
+        //if (PlayerPrefs.GetInt("TeamClass") == 0) // if is National
+        //{
+        //    if (p1TeamCounter > 27)
+        //        p1TeamCounter = 0;
+        //    if (p1TeamCounter < 0)
+        //        p1TeamCounter = 27;
+        //}
+        //else if (PlayerPrefs.GetInt("TeamClass") == 1) // if is Iran FC
+        //{
+        //    if (p1TeamCounter > 43)
+        //        p1TeamCounter = 28;
+        //    if (p1TeamCounter < 28)
+        //        p1TeamCounter = 43;
+        //}
+        //else if (PlayerPrefs.GetInt("TeamClass") == 2) // if is Eroupe FC
+        //{
+        //    if (p1TeamCounter > availableTeams.Length - 1)
+        //        p1TeamCounter = 44;
+        //    if (p1TeamCounter < 44)
+        //        p1TeamCounter = availableTeams.Length - 1;
+        //}
 
 
 
@@ -444,28 +641,28 @@ public class ConfigController : MonoBehaviour {
 		if(p2FormationCounter < 0)
 			p2FormationCounter = availableFormations.Length - 1;
 
-        //Player-2 team
-        if (PlayerPrefs.GetInt("TeamClass") == 0) // if is National
-        {
-            if (p2TeamCounter > 27)
-                p2TeamCounter = 0;
-            if (p2TeamCounter < 0)
-                p2TeamCounter = 27;
-        }
-        else if (PlayerPrefs.GetInt("TeamClass") == 1) // if is Iran FC
-        {
-            if (p2TeamCounter > 43)
-                p2TeamCounter = 28;
-            if (p2TeamCounter < 28)
-                p2TeamCounter = 43;
-        }
-        else if (PlayerPrefs.GetInt("TeamClass") == 2) // if is World FC
-        {
-            if (p2TeamCounter > availableTeams.Length - 1)
-                p2TeamCounter = 44;
-            if (p2TeamCounter < 44)
-                p2TeamCounter = availableTeams.Length - 1;
-        }
+        ////Player-2 team
+        //if (PlayerPrefs.GetInt("TeamClass") == 0) // if is National
+        //{
+        //    if (p2TeamCounter > 27)
+        //        p2TeamCounter = 0;
+        //    if (p2TeamCounter < 0)
+        //        p2TeamCounter = 27;
+        //}
+        //else if (PlayerPrefs.GetInt("TeamClass") == 1) // if is Iran FC
+        //{
+        //    if (p2TeamCounter > 43)
+        //        p2TeamCounter = 28;
+        //    if (p2TeamCounter < 28)
+        //        p2TeamCounter = 43;
+        //}
+        //else if (PlayerPrefs.GetInt("TeamClass") == 2) // if is World FC
+        //{
+        //    if (p2TeamCounter > availableTeams.Length - 1)
+        //        p2TeamCounter = 44;
+        //    if (p2TeamCounter < 44)
+        //        p2TeamCounter = availableTeams.Length - 1;
+        //}
 
 
 
@@ -523,4 +720,5 @@ public class ConfigController : MonoBehaviour {
 		}
 	}
 
-}
+
+    }

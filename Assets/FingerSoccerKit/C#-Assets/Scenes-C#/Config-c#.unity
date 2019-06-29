@@ -1970,6 +1970,10 @@ MonoBehaviour:
   p1FormationLabel: {fileID: 1314101767}
   p2FormationLabel: {fileID: 1254896534}
   gameTimeLabel: {fileID: 640453382}
+  p1_TBR: {fileID: 71146559}
+  p1_TBL: {fileID: 344650294}
+  p2_TBR: {fileID: 1119421923}
+  p2_TBL: {fileID: 1303756581}
 --- !u!82 &640657939
 AudioSource:
   m_ObjectHideFlags: 0
