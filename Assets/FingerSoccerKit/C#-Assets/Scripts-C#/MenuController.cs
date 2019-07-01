@@ -22,8 +22,13 @@ public class MenuController : MonoBehaviour {
 	// Init. Updates the 3d texts with saved values fetched from playerprefs.
 	//*****************************************************************************
 	void Awake (){
+        //MHD
 
-		Time.timeScale = 1.0f;
+        if (PlayerPrefs.GetInt("FirstNationalTeam") != 3)
+            Application.LoadLevel("TeamChooser");
+
+
+        Time.timeScale = 1.0f;
 		Time.fixedDeltaTime = 0.02f;
 		
 		playerWins.GetComponent<TextMesh>().text = "" + PlayerPrefs.GetInt("PlayerWins");
@@ -32,10 +37,12 @@ public class MenuController : MonoBehaviour {
 
 
 	IEnumerator Start() {
-		yield return new WaitForSeconds(1.0f);
+
+       
+
+        yield return new WaitForSeconds(1.0f);
 		canTap = true;
 	}
-
 	//*****************************************************************************
 	// FSM
 	//*****************************************************************************
