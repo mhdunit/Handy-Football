@@ -9420,6 +9420,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 69e7033f0c18dd24aabf54816008b243, type: 3}
   - {fileID: 2800000, guid: c992cf71dbdfc154d88c8d53f782dd22, type: 3}
   - {fileID: 2800000, guid: 56cff552926cf6a4b9a0a868d42f43c0, type: 3}
+  UnlockableTeams: {fileID: 185}
   timeText: {fileID: 1497584876}
   playerGoalsText: {fileID: 1625361836}
   opponentGoalsText: {fileID: 227786214}

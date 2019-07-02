@@ -27,7 +27,10 @@ public class TournamentManager : MonoBehaviour {
 	public GameObject btnStartText;
 	public GameObject btnExit;
 
-	public AudioClip tapSfx;					//tap sound for buttons click
+    public GameObject TeamOwnerText, TeamUnlockedText;
+
+
+    public AudioClip tapSfx;					//tap sound for buttons click
 	private bool canTap = true;					//flag to prevent double tap
 	private float buttonAnimationSpeed = 11;	//speed on animation effect when tapped on button
 
@@ -67,7 +70,13 @@ public class TournamentManager : MonoBehaviour {
        
         //other settings
         canTap = true;
-	}
+
+        if (PlayerPrefs.GetInt("NewTeamUnlocked") == 2)
+            TeamOwnerText.SetActive(true);
+        else if (PlayerPrefs.GetInt("NewTeamUnlocked") == 3)
+            TeamOwnerText.SetActive(true);
+
+    }
 
 
 	void Update () {

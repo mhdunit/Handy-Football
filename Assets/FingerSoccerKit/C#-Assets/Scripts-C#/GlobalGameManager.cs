@@ -117,16 +117,19 @@ public class GlobalGameManager : MonoBehaviour {
 	public GameObject statusTextureObject;		//plane we use to show the result texture in 3d world
 	public Texture2D[] statusModes;				//Available status textures
 
+    public OpponentAI UnlockableTeams;
+
 	//*****************************************************************************
 	// Init. 
 	//*****************************************************************************
-	void Awake (){	
+	void Awake (){
 
-		//debug
-		//PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("NewTeamUnlocked", 0);
+        //debug
+        //PlayerPrefs.DeleteAll();
 
-		//init
-		goalHappened = false;
+        //init
+        goalHappened = false;
 		shootHappened = false;
 		gameIsFinished = false;
 		playerGoals = 0;
@@ -624,14 +627,25 @@ public class GlobalGameManager : MonoBehaviour {
 				int playerMoney = PlayerPrefs.GetInt("PlayerMoney");
 				
 				PlayerPrefs.SetInt("PlayerWins", ++playerWins);			//add to wins counter
-				PlayerPrefs.SetInt("PlayerMoney", playerMoney + 100);	//handful of coins as the prize!
+				PlayerPrefs.SetInt("PlayerMoney", playerMoney + 100);   //handful of coins as the prize!
 
-				//if this is a tournament match, update it with win state and advance.
-				if(PlayerPrefs.GetInt("IsTournament") == 1) {
-					PlayerPrefs.SetInt("TorunamentMatchResult", 1);
-					PlayerPrefs.SetInt("TorunamentLevel", PlayerPrefs.GetInt("TorunamentLevel", 0) + 1);
-					continueTournamentBtn.SetActive(true);
-				}
+                //if this is a tournament match, update it with win state and advance.
+                if (PlayerPrefs.GetInt("IsTournament") == 1) {
+                    PlayerPrefs.SetInt("TorunamentMatchResult", 1);
+                    PlayerPrefs.SetInt("TorunamentLevel", PlayerPrefs.GetInt("TorunamentLevel", 0) + 1);
+                    continueTournamentBtn.SetActive(true);
+
+                    //Unlock Teams 
+
+                    if (PlayerPrefs.GetInt("TeamClass") == 0) //if is National
+                    {   
+                        PlayerPrefs.SetInt("Team" + UnlockableTeams.availableFlags[PlayerPrefs.GetInt("OpponentFlag")] + "LockState", 3); // Unlock A Team
+                        PlayerPrefs.SetInt("NewTeamUnlocked", 2);
+                    }
+                    else
+                        PlayerPrefs.SetInt("NewTeamUnlocked", 3);
+
+                }
 				
 			} else if(opponentGoals > goalLimit || opponentGoals > playerGoals) {
 			

@@ -47,6 +47,7 @@ public class ConfigController : MonoBehaviour {
 	public GameObject p1FormationLabel;			//UI 3d text object
 	public GameObject p2FormationLabel;			//UI 3d text object
 	public GameObject gameTimeLabel;			//UI 3d text object
+    public GameObject btnStart;
     int TeamUnlockTemp;
     int TeamUnlockTempReverse;
 
@@ -158,7 +159,8 @@ public class ConfigController : MonoBehaviour {
 			switch(objectHit.name) {
 
                 case "National":
-                //    print("National");
+                    //    print("National");
+                    btnStart.SetActive(true);
                     PlayerPrefs.SetInt("TeamClass",0);
                     for (int i = 0; i < 28; i++)
                     {
@@ -219,7 +221,8 @@ public class ConfigController : MonoBehaviour {
                    
                     break;
                 case "Iran FC":
-                //    print("Iran FC");
+                    //    print("Iran FC");
+                    btnStart.SetActive(true);
                     PlayerPrefs.SetInt("TeamClass", 1);
                     for (int i = 28; i < 44; i++)
                     {
@@ -278,7 +281,8 @@ public class ConfigController : MonoBehaviour {
                     }
                     break;
                 case "World FC":
-                  //  print("World FC");
+                    //  print("World FC");
+                    btnStart.SetActive(true);
                     PlayerPrefs.SetInt("TeamClass", 2);
                     for (int i = 44; i < availableTeams.Length; i++)
                     {
@@ -604,7 +608,8 @@ public class ConfigController : MonoBehaviour {
 					break;
 					
 				case "Btn-Back":
-					playSfx(tapSfx);
+                    btnStart.SetActive(false);
+                    playSfx(tapSfx);
 					StartCoroutine(animateButton(objectHit));
 					yield return new WaitForSeconds(0.5f);
                     //No need to save anything
