@@ -31,7 +31,7 @@ public class ConfigController : MonoBehaviour {
 	private bool  canTap = true;				//flag to prevent double tap
 	public AudioClip tapSfx;					//tap sound for buttons click
 
-    public GameObject National, IranFC, WorldFC;
+    public GameObject National, IranFC, IranFCDisabled, WorldFC, WorldFCDisabled;
 	public Texture2D[] availableTeams;			//just the images.
          //just the images.
     public string[] availableFormations;		//Just the string values. We setup actual values somewhere else.
@@ -196,9 +196,12 @@ public class ConfigController : MonoBehaviour {
                     }
 
 
-                        National.SetActive(false);
-                    IranFC.SetActive(false);
-                    WorldFC.SetActive(false);
+                     National.SetActive(false);
+                   // IranFC.SetActive(false);
+                    IranFCDisabled.SetActive(false);
+                  //  WorldFC.SetActive(false);
+                    WorldFCDisabled.SetActive(false);
+
                     if (isTournamentMode == 1)
                     {
                         p1TeamSel.SetActive(true);
@@ -258,8 +261,11 @@ public class ConfigController : MonoBehaviour {
                     }
                     
                     National.SetActive(false);
-                    IranFC.SetActive(false);
-                    WorldFC.SetActive(false);
+                    // IranFC.SetActive(false);
+                    IranFCDisabled.SetActive(false);
+                    //  WorldFC.SetActive(false);
+                    WorldFCDisabled.SetActive(false);
+
                     if (isTournamentMode == 1)
                     {
                         p1TeamSel.SetActive(true);
@@ -318,8 +324,11 @@ public class ConfigController : MonoBehaviour {
                     }
 
                     National.SetActive(false);
-                    IranFC.SetActive(false);
-                    WorldFC.SetActive(false);
+                    // IranFC.SetActive(false);
+                    IranFCDisabled.SetActive(false);
+                    //  WorldFC.SetActive(false);
+                    WorldFCDisabled.SetActive(false);
+
                     if (isTournamentMode == 1)
                     {
                         p1TeamSel.SetActive(true);
@@ -621,8 +630,10 @@ public class ConfigController : MonoBehaviour {
                         p2FormationSel.SetActive(false);
                         timeSel.SetActive(false);
                         National.SetActive(true);
-                        IranFC.SetActive(true);
-                        WorldFC.SetActive(true);
+                        //IranFC.SetActive(true);
+                        IranFCDisabled.SetActive(true);
+                        //WorldFC.SetActive(true);
+                        WorldFCDisabled.SetActive(true);
                         p1TeamCounter = 0;
                         p2TeamCounter = 0;
                     }

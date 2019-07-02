@@ -1980,7 +1980,9 @@ MonoBehaviour:
   tapSfx: {fileID: 8300000, guid: 53cc8db8e9ad156479b801a32f2e66a1, type: 3}
   National: {fileID: 776497654}
   IranFC: {fileID: 487978384}
+  IranFCDisabled: {fileID: 1106156681}
   WorldFC: {fileID: 1489913839}
+  WorldFCDisabled: {fileID: 1059173141}
   availableTeams:
   - {fileID: 2800000, guid: 86f9e776045c0d844898469d08d9bc16, type: 3}
   - {fileID: 2800000, guid: 31cefea2e6d28224ebc919719d23bcba, type: 3}
