@@ -639,11 +639,15 @@ public class GlobalGameManager : MonoBehaviour {
 
                     if (PlayerPrefs.GetInt("TeamClass") == 0) //if is National
                     {   
-                        PlayerPrefs.SetInt("Team" + UnlockableTeams.availableFlags[PlayerPrefs.GetInt("OpponentFlag")] + "LockState", 3); // Unlock A Team
+                        PlayerPrefs.SetInt("Team" + UnlockableTeams.availableFlags[PlayerPrefs.GetInt("OpponentFlag")] + "LockState", 3); // Unlock A National Team
                         PlayerPrefs.SetInt("NewTeamUnlocked", 2);
                     }
                     else
+                    {
+                        PlayerPrefs.SetInt("ActiveTeamLock" + UnlockableTeams.availableFlags[PlayerPrefs.GetInt("OpponentFlag")], 3); // Unlock A Other Team
                         PlayerPrefs.SetInt("NewTeamUnlocked", 3);
+                    }
+                        
 
                 }
 				

@@ -4,21 +4,27 @@ using UnityEngine.SceneManagement;
 
 public class ShopManager : MonoBehaviour {
 
-	private float buttonAnimationSpeed = 9;	//speed on animation effect when tapped on button
-	private bool  canTap = true;			//flag to prevent double tap
+    private float buttonAnimationSpeed = 9; //speed on animation effect when tapped on button
+    private bool canTap = true;         //flag to prevent double tap
 
-	public AudioClip tapSfx;				//buy sfx
-	public GameObject playerMoney;			//Reference to 3d text
-	private int availableMoney;
+    public AudioClip tapSfx;                //buy sfx
+    public GameObject playerMoney;          //Reference to 3d text
+    private int availableMoney;
+    public GameObject firstMenu, NationalMenu;
+    public GameObject[] TeamsLocked;
+    public Texture2D[] TeamsFlag;
 
-	//*****************************************************************************
-	// Init. 
-	//*****************************************************************************
-	void Awake (){
+    //*****************************************************************************
+    // Init. 
+    //*****************************************************************************
+    void Awake (){
 		//Updates 3d text with saved values fetched from playerprefs
 		availableMoney = PlayerPrefs.GetInt("PlayerMoney");
 		playerMoney.GetComponent<TextMesh>().text = "" + availableMoney;
-	}
+
+
+       
+    }
 
 	//*****************************************************************************
 	// FSM 
@@ -73,12 +79,58 @@ public class ShopManager : MonoBehaviour {
 				//load next level
 				SceneManager.LoadScene("ShopTeam-c#");
 				break;
-				
-			case "Btn-Back":
+
+                case "National":
+                    StartCoroutine(animateButton(objectHit));
+                    //play sfx
+                    playSfx(tapSfx);
+                    //Wait
+                    yield return new WaitForSeconds(0.5f);
+                    //MHD
+                    for (int i = 0; i < TeamsLocked.Length; i++)
+                    {
+                        if (PlayerPrefs.GetInt("Team" + TeamsFlag[i] + "LockState") == 3)
+                            TeamsLocked[i].GetComponent<Renderer>().material.mainTexture = TeamsFlag[i];
+                    }
+                    firstMenu.SetActive(false);
+                    NationalMenu.SetActive(true);
+                    break;
+
+                case "Iran FC":
+                    StartCoroutine(animateButton(objectHit));
+                    //play sfx
+                    playSfx(tapSfx);
+                    //Wait
+                    yield return new WaitForSeconds(0.5f);
+                    //MHD
+                    firstMenu.SetActive(false);
+                    print("Iran FC Team");
+                    break;
+
+                case "World FC":
+                    StartCoroutine(animateButton(objectHit));
+                    //play sfx
+                    playSfx(tapSfx);
+                    //Wait
+                    yield return new WaitForSeconds(0.5f);
+                    //MHD
+                    firstMenu.SetActive(false);
+                    print("World FC Team");
+                    break;
+
+                case "Btn-Back":
 				StartCoroutine(animateButton(objectHit));
 				playSfx(tapSfx);
-				yield return new WaitForSeconds(1.0f);
-				SceneManager.LoadScene("Menu-c#");
+                    if (!firstMenu.activeSelf)
+                    {
+                        NationalMenu.SetActive(false);
+                        firstMenu.SetActive(true);
+                    }
+                    else
+                    {
+                        yield return new WaitForSeconds(1.0f);
+                        SceneManager.LoadScene("Menu-c#");
+                    }              
 				break;
 			}	
 		}

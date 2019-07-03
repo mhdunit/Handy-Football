@@ -85,7 +85,7 @@ public class TournamentManager : MonoBehaviour {
 
 	void Update () {
 
-        print("Team Class : " + PlayerPrefs.GetInt("Team Class") + " , Tournomemt Winning : " + PlayerPrefs.GetInt("TournomemtWinning"));
+       // print("Team Class : " + PlayerPrefs.GetInt("Team Class") + " , Tournomemt Winning : " + PlayerPrefs.GetInt("TournomemtWinning"));
         if (canTap) {
 			StartCoroutine(tapManager());
 		}
@@ -459,7 +459,7 @@ public class TournamentManager : MonoBehaviour {
             //grant any score, money, bonus, etc, in here...
             //for example, give player (winner) 5000 coin as the prize
             int playerMoney = PlayerPrefs.GetInt("PlayerMoney");
-            playerMoney += 5000;
+            playerMoney += 1000;
             PlayerPrefs.SetInt("PlayerMoney", playerMoney);
 
             //reset tournament settings and advancements

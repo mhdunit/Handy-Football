@@ -385,6 +385,7 @@ public class ConfigController : MonoBehaviour {
                     // Unlock A Team
                     playSfx(tapSfx);
                     StartCoroutine(animateButton(objectHit));   //button scale-animation to user input
+                    yield return new WaitForSeconds(0.07f);
                     PlayerPrefs.SetInt("Team" + availableTeams[p1TeamCounter] + "LockState", 3); // Unlock A Team
                     if (PlayerPrefs.GetInt("TeamClass") == 0)
                         PlayerPrefs.SetInt("FirstNationalTeam", 3); // national Team Unlocked
