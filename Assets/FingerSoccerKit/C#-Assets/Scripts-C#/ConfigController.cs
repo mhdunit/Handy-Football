@@ -55,19 +55,84 @@ public class ConfigController : MonoBehaviour {
 	private int p1TeamCounter = 0;				//Actual player-1 team index
 	private int p2FormationCounter = 0;			//Actual player-2 formation index
 	private int p2TeamCounter = 0;				//Actual player-2 team index
-	private int timeCounter = 0;				//Actual game-time index
+	private int timeCounter = 0;                //Actual game-time index
 
-	//*****************************************************************************
-	// Init. Updates the 3d texts with saved values fetched from playerprefs.
-	//***************************************************************************
-	void Awake (){
-        //MHD
-        if (!PlayerPrefs.HasKey("TeamClass"))
+    //*****************************************************************************
+    // Init. Updates the 3d texts with saved values fetched from playerprefs.
+    //***************************************************************************
+    void Awake()
+    {
+        ////MHD
+        //if (!PlayerPrefs.HasKey("TeamClass"))
+        //{
+        //    PlayerPrefs.SetInt("TeamClass", 0);
+        //}
+
+        if (Application.loadedLevelName != "TeamChooser")
         {
-            PlayerPrefs.SetInt("TeamClass", 0);
+
+
+            // Unlock Iran FC check
+            if (PlayerPrefs.GetInt("FirstIranFCTeam") == 3)
+            {
+                IranFC.SetActive(true);
+                IranFCDisabled.SetActive(false);
+            }
+            else
+            {
+                IranFC.SetActive(false);
+                IranFCDisabled.SetActive(true);
+            }
+            if (PlayerPrefs.GetInt("FirstEroupFCTeam") == 3)
+            {
+                WorldFC.SetActive(true);
+                WorldFCDisabled.SetActive(false);
+            }
+            else
+            {
+                WorldFC.SetActive(false);
+                WorldFCDisabled.SetActive(true);
+            }
+            // PlayerPrefs.SetInt("Team" + availableTeams[0] + "LockState", 3);
+            //check if this config scene is getting used for tournament or normal play mode
+            isTournamentMode = PlayerPrefs.GetInt("IsTournament");
+
+            if (isTournamentMode == 1)
+            {
+
+                //first of all, check if we are going to continue an unfinished tournament
+                if (PlayerPrefs.GetInt("TorunamentLevel") > 0)
+                {
+                    //if so, there is no need for any configuration. load the next scene.
+                    SceneManager.LoadScene("Tournament-c#");
+                    return;
+                }
+
+
+                //disable unnecessary options
+                p2TeamSel.SetActive(false);
+                p2FormationSel.SetActive(false);
+                timeSel.SetActive(false);
+
+                p1TeamSel.transform.position = new Vector3(0, 4.5f, -1);
+                p1FormationSel.transform.position = new Vector3(0, -4.3f, -1);
+            }
+
+            p1FormationLabel.GetComponent<TextMesh>().text = availableFormations[p1FormationCounter];   //loads default formation
+
+
+            p2FormationLabel.GetComponent<TextMesh>().text = availableFormations[p2FormationCounter];   //loads default formation
+
+
+            gameTimeLabel.GetComponent<TextMesh>().text = availableTimes[timeCounter];              //loads default game-time
         }
+    }
+     void Start()
+    {
         if (Application.loadedLevelName == "TeamChooser")
         {
+            print("Team Class : " + PlayerPrefs.GetInt("TeamClass"));
+
             if (PlayerPrefs.GetInt("TeamClass") == 0)
                 p1TeamCounter = 0;
             else if (PlayerPrefs.GetInt("TeamClass") == 1)
@@ -83,44 +148,11 @@ public class ConfigController : MonoBehaviour {
                                                          p1TimeBar.transform.localScale.y,
                                                          p1TimeBar.transform.localScale.z);
         }
-       // PlayerPrefs.SetInt("Team" + availableTeams[0] + "LockState", 3);
-        //check if this config scene is getting used for tournament or normal play mode
-        isTournamentMode = PlayerPrefs.GetInt("IsTournament");
-
-        if (isTournamentMode == 1)
-        {
-
-            //first of all, check if we are going to continue an unfinished tournament
-            if (PlayerPrefs.GetInt("TorunamentLevel") > 0)
-            {
-                //if so, there is no need for any configuration. load the next scene.
-                SceneManager.LoadScene("Tournament-c#");
-                return;
-            }
-           
-
-            //disable unnecessary options
-            p2TeamSel.SetActive(false);
-            p2FormationSel.SetActive(false);
-            timeSel.SetActive(false);
-
-            p1TeamSel.transform.position = new Vector3(0, 4.5f, -1);
-            p1FormationSel.transform.position = new Vector3(0, -4.3f, -1);
-        }
-
-        p1FormationLabel.GetComponent<TextMesh>().text = availableFormations[p1FormationCounter];	//loads default formation
-
-
-		p2FormationLabel.GetComponent<TextMesh>().text = availableFormations[p2FormationCounter];	//loads default formation
-
-
-		gameTimeLabel.GetComponent<TextMesh>().text = availableTimes[timeCounter];				//loads default game-time
-	}
-
-	//*****************************************************************************
-	// FSM
-	//*****************************************************************************
-	void Update (){
+    }
+    //*****************************************************************************
+    // FSM
+    //*****************************************************************************
+    void Update (){
       //  print("TeamClass : " + PlayerPrefs.GetInt("TeamClass")+ " , " + "p1TeamCounter : " + p1TeamCounter);
       //  print("Reverse : "+ TeamUnlockTempReverse);
         if (Input.GetKey(KeyCode.R))
@@ -197,9 +229,9 @@ public class ConfigController : MonoBehaviour {
 
 
                      National.SetActive(false);
-                   // IranFC.SetActive(false);
+                    IranFC.SetActive(false);
                     IranFCDisabled.SetActive(false);
-                  //  WorldFC.SetActive(false);
+                    WorldFC.SetActive(false);
                     WorldFCDisabled.SetActive(false);
 
                     if (isTournamentMode == 1)
@@ -261,9 +293,9 @@ public class ConfigController : MonoBehaviour {
                     }
                     
                     National.SetActive(false);
-                    // IranFC.SetActive(false);
+                     IranFC.SetActive(false);
                     IranFCDisabled.SetActive(false);
-                    //  WorldFC.SetActive(false);
+                      WorldFC.SetActive(false);
                     WorldFCDisabled.SetActive(false);
 
                     if (isTournamentMode == 1)
@@ -324,9 +356,9 @@ public class ConfigController : MonoBehaviour {
                     }
 
                     National.SetActive(false);
-                    // IranFC.SetActive(false);
+                     IranFC.SetActive(false);
                     IranFCDisabled.SetActive(false);
-                    //  WorldFC.SetActive(false);
+                      WorldFC.SetActive(false);
                     WorldFCDisabled.SetActive(false);
 
                     if (isTournamentMode == 1)
@@ -354,7 +386,13 @@ public class ConfigController : MonoBehaviour {
                     playSfx(tapSfx);
                     StartCoroutine(animateButton(objectHit));   //button scale-animation to user input
                     PlayerPrefs.SetInt("Team" + availableTeams[p1TeamCounter] + "LockState", 3); // Unlock A Team
-                    PlayerPrefs.SetInt("FirstNationalTeam", 3); // Never Shows Again
+                    if (PlayerPrefs.GetInt("TeamClass") == 0)
+                        PlayerPrefs.SetInt("FirstNationalTeam", 3); // national Team Unlocked
+                    else if (PlayerPrefs.GetInt("TeamClass") == 1)
+                        PlayerPrefs.SetInt("FirstIranFCTeam", 3); // IranFC Team Unlocked
+                    else if (PlayerPrefs.GetInt("TeamClass") == 2)
+                        PlayerPrefs.SetInt("FirstEroupFCTeam", 3); // EroupFC Team Unlocked
+                    PlayerPrefs.SetInt("TeamClass",0);
                     Application.LoadLevelAsync("Menu-c#");
                     break;
                 case "p1-TBR":
@@ -630,10 +668,27 @@ public class ConfigController : MonoBehaviour {
                         p2FormationSel.SetActive(false);
                         timeSel.SetActive(false);
                         National.SetActive(true);
-                        //IranFC.SetActive(true);
-                        IranFCDisabled.SetActive(true);
-                        //WorldFC.SetActive(true);
-                        WorldFCDisabled.SetActive(true);
+                        // Unlock Iran FC check
+                        if (PlayerPrefs.GetInt("FirstIranFCTeam") == 3)
+                        {
+                            IranFC.SetActive(true);
+                            IranFCDisabled.SetActive(false);
+                        }
+                        else
+                        {
+                            IranFC.SetActive(false);
+                            IranFCDisabled.SetActive(true);
+                        }
+                        if (PlayerPrefs.GetInt("FirstEroupFCTeam") == 3)
+                        {
+                            WorldFC.SetActive(true);
+                            WorldFCDisabled.SetActive(false);
+                        }
+                        else
+                        {
+                            WorldFC.SetActive(false);
+                            WorldFCDisabled.SetActive(true);
+                        }
                         p1TeamCounter = 0;
                         p2TeamCounter = 0;
                     }

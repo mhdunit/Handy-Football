@@ -36,6 +36,10 @@ public class TournamentManager : MonoBehaviour {
 
 	void Awake () {
 
+        if (!PlayerPrefs.HasKey("TournomemtWinning"))
+        {
+            PlayerPrefs.SetInt("TournomemtWinning",0);
+        }
 		//avoid starting the game in paused mode
 		Time.timeScale = 1.0f;
 		Time.fixedDeltaTime = 0.02f;
@@ -80,7 +84,8 @@ public class TournamentManager : MonoBehaviour {
 
 
 	void Update () {
-        print("Torunament Level : " + torunamentLevel);
+
+        print("Team Class : " + PlayerPrefs.GetInt("Team Class") + " , Tournomemt Winning : " + PlayerPrefs.GetInt("TournomemtWinning"));
         if (canTap) {
 			StartCoroutine(tapManager());
 		}
@@ -351,7 +356,7 @@ public class TournamentManager : MonoBehaviour {
         {
 
             LevelETeams[0].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelC0")];
-
+            PlayerPrefs.SetInt("TournomemtWinning", PlayerPrefs.GetInt("TournomemtWinning") + 1);
             btnStartText.GetComponent<TextMesh>().text = "Finish";
             btnStart.GetComponent<BoxCollider>().enabled = true;
             btnExit.SetActive(false);
@@ -459,8 +464,13 @@ public class TournamentManager : MonoBehaviour {
 
             //reset tournament settings and advancements
             resetTournamentSettings();
+            if (PlayerPrefs.GetInt("TeamClass") == 0 && PlayerPrefs.GetInt("TournomemtWinning") == 1)
+                    PlayerPrefs.SetInt("TeamClass", 1);
 
-            SceneManager.LoadScene("Menu-c#");
+            if (PlayerPrefs.GetInt("TeamClass") == 1 && PlayerPrefs.GetInt("TournomemtWinning") == 2)
+                PlayerPrefs.SetInt("TeamClass", 2);
+
+                SceneManager.LoadScene("Menu-c#");
         }
 
         //if we have lost the match, we should exit

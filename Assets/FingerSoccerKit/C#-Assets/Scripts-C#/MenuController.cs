@@ -24,8 +24,8 @@ public class MenuController : MonoBehaviour {
 	void Awake (){
         //MHD
 
-        if (PlayerPrefs.GetInt("FirstNationalTeam") != 3)
-            Application.LoadLevel("TeamChooser");
+        if (PlayerPrefs.GetInt("FirstNationalTeam") != 3 || PlayerPrefs.GetInt("TeamClass") == 1 && PlayerPrefs.GetInt("TournomemtWinning") == 1 || PlayerPrefs.GetInt("TeamClass") == 2 && PlayerPrefs.GetInt("TournomemtWinning") == 2)
+            SceneManager.LoadSceneAsync("TeamChooser");
 
 
         Time.timeScale = 1.0f;
