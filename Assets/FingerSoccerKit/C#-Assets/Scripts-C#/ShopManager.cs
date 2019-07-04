@@ -10,7 +10,7 @@ public class ShopManager : MonoBehaviour {
     public AudioClip tapSfx;                //buy sfx
     public GameObject playerMoney;          //Reference to 3d text
     private int availableMoney;
-    public GameObject firstMenu, NationalMenu;
+    public GameObject firstMenu, NationalMenu,IranFCMenu,EroupeFCMenu;
     public GameObject[] TeamsLocked;
     public Texture2D[] TeamsFlag;
 
@@ -96,7 +96,7 @@ public class ShopManager : MonoBehaviour {
                     NationalMenu.SetActive(true);
                     break;
 
-                case "Iran FC":
+                case "Iran FC":                   
                     StartCoroutine(animateButton(objectHit));
                     //play sfx
                     playSfx(tapSfx);
@@ -104,6 +104,7 @@ public class ShopManager : MonoBehaviour {
                     yield return new WaitForSeconds(0.5f);
                     //MHD
                     firstMenu.SetActive(false);
+                    IranFCMenu.SetActive(true);
                     print("Iran FC Team");
                     break;
 
@@ -115,6 +116,7 @@ public class ShopManager : MonoBehaviour {
                     yield return new WaitForSeconds(0.5f);
                     //MHD
                     firstMenu.SetActive(false);
+                    EroupeFCMenu.SetActive(true);
                     print("World FC Team");
                     break;
 
@@ -124,6 +126,8 @@ public class ShopManager : MonoBehaviour {
                     if (!firstMenu.activeSelf)
                     {
                         NationalMenu.SetActive(false);
+                        IranFCMenu.SetActive(false);
+                        EroupeFCMenu.SetActive(false);
                         firstMenu.SetActive(true);
                     }
                     else

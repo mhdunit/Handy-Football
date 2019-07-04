@@ -459,7 +459,7 @@ public class TournamentManager : MonoBehaviour {
             //grant any score, money, bonus, etc, in here...
             //for example, give player (winner) 5000 coin as the prize
             int playerMoney = PlayerPrefs.GetInt("PlayerMoney");
-            playerMoney += 1000;
+            playerMoney += 500;
             PlayerPrefs.SetInt("PlayerMoney", playerMoney);
 
             //reset tournament settings and advancements
