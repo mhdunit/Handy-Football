@@ -324,7 +324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &23549500
 Transform:
   m_ObjectHideFlags: 0
@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 25634403}
   - component: {fileID: 25634402}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 53. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -381,7 +381,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 25634400}
-  m_Text: 13500
+  m_Text: 10500
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -1267,7 +1267,7 @@ GameObject:
   - component: {fileID: 227593674}
   - component: {fileID: 227593673}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 40. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1295,7 +1295,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 227593671}
-  m_Text: 6500
+  m_Text: 2000
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -1725,7 +1725,7 @@ GameObject:
   - component: {fileID: 329519481}
   - component: {fileID: 329519480}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 42. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1753,7 +1753,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329519478}
-  m_Text: 7500
+  m_Text: 1000
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -2000,7 +2000,7 @@ GameObject:
   - component: {fileID: 361256395}
   - component: {fileID: 361256394}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 32. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2028,7 +2028,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 361256392}
-  m_Text: 2500
+  m_Text: 6000
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -2274,7 +2274,7 @@ GameObject:
   - component: {fileID: 426995667}
   - component: {fileID: 426995666}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 44. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2302,7 +2302,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426995664}
-  m_Text: 8500
+  m_Text: 10000
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -2548,7 +2548,7 @@ GameObject:
   - component: {fileID: 503959261}
   - component: {fileID: 503959260}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 56. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2576,7 +2576,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503959258}
-  m_Text: 15000
+  m_Text: 16000
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -2730,7 +2730,7 @@ GameObject:
   - component: {fileID: 554937292}
   - component: {fileID: 554937291}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 43. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2758,7 +2758,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 554937289}
-  m_Text: 8000
+  m_Text: 500
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -2821,7 +2821,7 @@ GameObject:
   - component: {fileID: 566756687}
   - component: {fileID: 566756686}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 57. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2849,7 +2849,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566756684}
-  m_Text: 15500
+  m_Text: 11500
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -3180,6 +3180,38 @@ MonoBehaviour:
   - {fileID: 2093328291}
   - {fileID: 1264994244}
   - {fileID: 50603113}
+  - {fileID: 40843467}
+  - {fileID: 666038096}
+  - {fileID: 1369353652}
+  - {fileID: 370262750}
+  - {fileID: 1950127568}
+  - {fileID: 997069385}
+  - {fileID: 355190821}
+  - {fileID: 1127623885}
+  - {fileID: 317086064}
+  - {fileID: 713685689}
+  - {fileID: 107864175}
+  - {fileID: 1591908214}
+  - {fileID: 262263035}
+  - {fileID: 649801682}
+  - {fileID: 862381351}
+  - {fileID: 95997226}
+  - {fileID: 1568890106}
+  - {fileID: 1791232216}
+  - {fileID: 1395994890}
+  - {fileID: 84057400}
+  - {fileID: 873946041}
+  - {fileID: 1929964691}
+  - {fileID: 571827423}
+  - {fileID: 339991913}
+  - {fileID: 645964752}
+  - {fileID: 1309092972}
+  - {fileID: 1102771213}
+  - {fileID: 283353793}
+  - {fileID: 642227749}
+  - {fileID: 1153097332}
+  - {fileID: 1762718358}
+  - {fileID: 756481661}
   TeamsFlag:
   - {fileID: 2800000, guid: 86f9e776045c0d844898469d08d9bc16, type: 3}
   - {fileID: 2800000, guid: 31cefea2e6d28224ebc919719d23bcba, type: 3}
@@ -3209,6 +3241,99 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 1d89889a89f743c4292e43be1dd3f122, type: 3}
   - {fileID: 2800000, guid: 6c5bf0124aef0594694152d47c444794, type: 3}
   - {fileID: 2800000, guid: d42977b860cf40145846318ac790a5ea, type: 3}
+  - {fileID: 2800000, guid: 30ff782f02cc57a4088a728eff359fb4, type: 3}
+  - {fileID: 2800000, guid: 8baeed36c48075f488d004fe81623165, type: 3}
+  - {fileID: 2800000, guid: 2b67b5e531ddb774d8d214eb8751ff9b, type: 3}
+  - {fileID: 2800000, guid: 42a4d16bf136454439b268ebccef03ab, type: 3}
+  - {fileID: 2800000, guid: 5feccf28e1714f648aee52f64dd47775, type: 3}
+  - {fileID: 2800000, guid: 6d4f0150f8f8f9f4a93503cf5ed4e3f4, type: 3}
+  - {fileID: 2800000, guid: c0d89bdd1e7bcd34b866c60535f17e53, type: 3}
+  - {fileID: 2800000, guid: f2219dce0f6d1eb4f997235f0c050316, type: 3}
+  - {fileID: 2800000, guid: e19d0eedea3755348831c01bb09b152c, type: 3}
+  - {fileID: 2800000, guid: bf5576b64d6c3de44a4622bc6a059e19, type: 3}
+  - {fileID: 2800000, guid: da7bc58303a1b3e4696677e47513f296, type: 3}
+  - {fileID: 2800000, guid: 49d7cea83bd498e48a1a6c61e39acf9b, type: 3}
+  - {fileID: 2800000, guid: 968639939934c02458365dc5e7394ebf, type: 3}
+  - {fileID: 2800000, guid: 19d06e2047ccaa84e8ecf9a0fe100de9, type: 3}
+  - {fileID: 2800000, guid: f3c0a53ffb242bc4e9a179f5dd833f69, type: 3}
+  - {fileID: 2800000, guid: 7332c8051f7f5e540a3fcc144887da59, type: 3}
+  - {fileID: 2800000, guid: a0b393c6aa583eb41878fe40e58235c9, type: 3}
+  - {fileID: 2800000, guid: 122623133c466cc4e8d85a03620ba47b, type: 3}
+  - {fileID: 2800000, guid: 276d93debfaaa6a498dbabb1d63543f7, type: 3}
+  - {fileID: 2800000, guid: ecc14e48312e2cc4baf98cb61e7e6575, type: 3}
+  - {fileID: 2800000, guid: e3552648ae2b9964db028d465f7a3c39, type: 3}
+  - {fileID: 2800000, guid: a243b6762d3f35b4884783dbd1f3e229, type: 3}
+  - {fileID: 2800000, guid: 03946015dfd318b4caf3fa468874631c, type: 3}
+  - {fileID: 2800000, guid: 90cd57cae3171d349b4487f966781386, type: 3}
+  - {fileID: 2800000, guid: 3290313051e94d04bbf3d3577c562510, type: 3}
+  - {fileID: 2800000, guid: 19866610a0a24d7499e9117198f1bef4, type: 3}
+  - {fileID: 2800000, guid: 734927857a29eca42a926169143abfc4, type: 3}
+  - {fileID: 2800000, guid: 5190753f84af8894dae96b2c5c543f37, type: 3}
+  - {fileID: 2800000, guid: 2f48c391f58748a4aac49f0114a9c9f2, type: 3}
+  - {fileID: 2800000, guid: 3989c8b0d3530db4796cd76f80fcfecb, type: 3}
+  - {fileID: 2800000, guid: 96bcc428cc71fb749a00c251afe6f772, type: 3}
+  - {fileID: 2800000, guid: 3896c1abdb08ee44791f689a05902cb7, type: 3}
+  TeamPrice:
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 988769388}
+  - {fileID: 893264465}
+  - {fileID: 1810029367}
+  - {fileID: 978416158}
+  - {fileID: 2065802671}
+  - {fileID: 361256394}
+  - {fileID: 1599039160}
+  - {fileID: 1947465125}
+  - {fileID: 1404347942}
+  - {fileID: 1316881374}
+  - {fileID: 1838241793}
+  - {fileID: 1802378819}
+  - {fileID: 1022228706}
+  - {fileID: 227593673}
+  - {fileID: 1886831385}
+  - {fileID: 329519480}
+  - {fileID: 554937291}
+  - {fileID: 426995666}
+  - {fileID: 780917373}
+  - {fileID: 2132801580}
+  - {fileID: 1902732669}
+  - {fileID: 1760687269}
+  - {fileID: 1752625995}
+  - {fileID: 1816019483}
+  - {fileID: 2049897845}
+  - {fileID: 1418907375}
+  - {fileID: 25634402}
+  - {fileID: 1004669428}
+  - {fileID: 1543443977}
+  - {fileID: 503959260}
+  - {fileID: 566756686}
+  - {fileID: 1110397303}
+  - {fileID: 1052210554}
 --- !u!82 &640657939
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4296,7 +4421,7 @@ GameObject:
   - component: {fileID: 780917374}
   - component: {fileID: 780917373}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 45. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4324,7 +4449,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780917371}
-  m_Text: 9000
+  m_Text: 14500
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -4969,7 +5094,7 @@ GameObject:
   - component: {fileID: 893264466}
   - component: {fileID: 893264465}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 28. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4997,7 +5122,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893264463}
-  m_Text: 500
+  m_Text: 8000
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -5440,6 +5565,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1650069186}
+  - {fileID: 988769387}
   - {fileID: 1720544428}
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -5456,7 +5582,7 @@ GameObject:
   - component: {fileID: 978416159}
   - component: {fileID: 978416158}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 30. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5484,7 +5610,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978416156}
-  m_Text: 1500
+  m_Text: 7000
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -5505,6 +5631,97 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978416156}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 85a53d240ca47f2428d0fcc8c3145651, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &988769386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 988769387}
+  - component: {fileID: 988769389}
+  - component: {fileID: 988769388}
+  m_Layer: 0
+  m_Name: 1-27. Price
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &988769387
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988769386}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17.294296, y: 1.6093104, z: -0.13828123}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 971662413}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!102 &988769388
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988769386}
+  m_Text: 500
+  m_OffsetZ: 0
+  m_CharacterSize: 0.1
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 1
+  m_TabSize: 4
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: 6412080400f98fe4c8ddd3a7da81234a, type: 2}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &988769389
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988769386}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -5639,7 +5856,7 @@ GameObject:
   - component: {fileID: 1004669429}
   - component: {fileID: 1004669428}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 54. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5667,7 +5884,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004669426}
-  m_Text: 14000
+  m_Text: 12000
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -5930,7 +6147,7 @@ GameObject:
   - component: {fileID: 1022228707}
   - component: {fileID: 1022228706}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 39. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5958,7 +6175,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022228704}
-  m_Text: 6000
+  m_Text: 2500
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -6021,7 +6238,7 @@ GameObject:
   - component: {fileID: 1052210555}
   - component: {fileID: 1052210554}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 59. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6049,7 +6266,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052210552}
-  m_Text: 16500
+  m_Text: 9000
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -6296,7 +6513,7 @@ GameObject:
   - component: {fileID: 1110397304}
   - component: {fileID: 1110397303}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 58. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6324,7 +6541,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110397301}
-  m_Text: 16000
+  m_Text: 12500
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -6482,7 +6699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1127794325
 Transform:
   m_ObjectHideFlags: 0
@@ -7227,7 +7444,7 @@ GameObject:
   - component: {fileID: 1316881375}
   - component: {fileID: 1316881374}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 36. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7255,7 +7472,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316881372}
-  m_Text: 4500
+  m_Text: 4000
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -7686,7 +7903,7 @@ GameObject:
   - component: {fileID: 1404347943}
   - component: {fileID: 1404347942}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 35. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7714,7 +7931,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404347940}
-  m_Text: 4000
+  m_Text: 4500
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -7777,7 +7994,7 @@ GameObject:
   - component: {fileID: 1418907376}
   - component: {fileID: 1418907375}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 52. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7805,7 +8022,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418907373}
-  m_Text: 13000
+  m_Text: 14000
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -8141,7 +8358,7 @@ GameObject:
   - component: {fileID: 1543443978}
   - component: {fileID: 1543443977}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 55. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8169,7 +8386,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543443975}
-  m_Text: 14500
+  m_Text: 13000
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -8507,7 +8724,7 @@ GameObject:
   - component: {fileID: 1599039161}
   - component: {fileID: 1599039160}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 33. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8535,7 +8752,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599039158}
-  m_Text: 3000
+  m_Text: 5500
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -8915,7 +9132,7 @@ Transform:
   - {fileID: 1264994245}
   - {fileID: 50603114}
   m_Father: {fileID: 971662413}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1730451831
 GameObject:
@@ -9020,7 +9237,7 @@ GameObject:
   - component: {fileID: 1752625996}
   - component: {fileID: 1752625995}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 49. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9048,7 +9265,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752625993}
-  m_Text: 11500
+  m_Text: 9500
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -9111,7 +9328,7 @@ GameObject:
   - component: {fileID: 1760687270}
   - component: {fileID: 1760687269}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 48. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9477,7 +9694,7 @@ GameObject:
   - component: {fileID: 1802378820}
   - component: {fileID: 1802378819}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 38. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9505,7 +9722,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802378817}
-  m_Text: 5500
+  m_Text: 3000
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -9568,7 +9785,7 @@ GameObject:
   - component: {fileID: 1810029368}
   - component: {fileID: 1810029367}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 29. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9596,7 +9813,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810029365}
-  m_Text: 1000
+  m_Text: 7500
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -9659,7 +9876,7 @@ GameObject:
   - component: {fileID: 1816019484}
   - component: {fileID: 1816019483}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 50. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9687,7 +9904,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816019481}
-  m_Text: 12000
+  m_Text: 16500
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -9750,7 +9967,7 @@ GameObject:
   - component: {fileID: 1838241794}
   - component: {fileID: 1838241793}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 37. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9778,7 +9995,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838241791}
-  m_Text: 5000
+  m_Text: 3500
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -10161,7 +10378,7 @@ GameObject:
   - component: {fileID: 1886831386}
   - component: {fileID: 1886831385}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 41. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10189,7 +10406,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886831383}
-  m_Text: 7000
+  m_Text: 1500
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -10343,7 +10560,7 @@ GameObject:
   - component: {fileID: 1902732670}
   - component: {fileID: 1902732669}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 47. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10371,7 +10588,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902732667}
-  m_Text: 10500
+  m_Text: 15000
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -10526,7 +10743,7 @@ GameObject:
   - component: {fileID: 1947465126}
   - component: {fileID: 1947465125}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 34. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10554,7 +10771,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947465123}
-  m_Text: 3500
+  m_Text: 5000
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -10937,7 +11154,7 @@ GameObject:
   - component: {fileID: 2049897846}
   - component: {fileID: 2049897845}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 51. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10965,7 +11182,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049897843}
-  m_Text: 12500
+  m_Text: 13500
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -11028,7 +11245,7 @@ GameObject:
   - component: {fileID: 2065802672}
   - component: {fileID: 2065802671}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 31. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11056,7 +11273,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2065802669}
-  m_Text: 2000
+  m_Text: 6500
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -11301,7 +11518,7 @@ GameObject:
   - component: {fileID: 2132801581}
   - component: {fileID: 2132801580}
   m_Layer: 0
-  m_Name: Price
+  m_Name: 46. Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11329,7 +11546,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132801578}
-  m_Text: 10000
+  m_Text: 15500
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1

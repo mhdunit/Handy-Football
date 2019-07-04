@@ -10,9 +10,10 @@ public class ShopManager : MonoBehaviour {
     public AudioClip tapSfx;                //buy sfx
     public GameObject playerMoney;          //Reference to 3d text
     private int availableMoney;
-    public GameObject firstMenu, NationalMenu,IranFCMenu,EroupeFCMenu;
+    public GameObject firstMenu, NationalMenu, IranFCMenu, EroupeFCMenu;
     public GameObject[] TeamsLocked;
     public Texture2D[] TeamsFlag;
+    public TextMesh[] TeamPrice;
 
     //*****************************************************************************
     // Init. 
