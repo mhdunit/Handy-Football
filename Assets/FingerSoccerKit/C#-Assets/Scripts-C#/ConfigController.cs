@@ -124,7 +124,7 @@ public class ConfigController : MonoBehaviour {
             p2FormationLabel.GetComponent<TextMesh>().text = availableFormations[p2FormationCounter];   //loads default formation
 
 
-            gameTimeLabel.GetComponent<TextMesh>().text = availableTimes[timeCounter];              //loads default game-time
+            gameTimeLabel.GetComponent<TextMesh>().text = availableTimes[timeCounter].faConvert();              //loads default game-time
         }
     }
      void Start()
@@ -646,7 +646,7 @@ public class ConfigController : MonoBehaviour {
 					StartCoroutine(animateButton(objectHit));
 					timeCounter--;
 					fixCounterLengths();
-					gameTimeLabel.GetComponent<TextMesh>().text = availableTimes[timeCounter];
+					gameTimeLabel.GetComponent<TextMesh>().text = availableTimes[timeCounter].faConvert();
 					break;
 					
 				case "durationBtnRight":
@@ -654,7 +654,7 @@ public class ConfigController : MonoBehaviour {
 					StartCoroutine(animateButton(objectHit));
 					timeCounter++;
 					fixCounterLengths();
-					gameTimeLabel.GetComponent<TextMesh>().text = availableTimes[timeCounter];
+					gameTimeLabel.GetComponent<TextMesh>().text = availableTimes[timeCounter].faConvert();
 					break;
 					
 				case "Btn-Back":

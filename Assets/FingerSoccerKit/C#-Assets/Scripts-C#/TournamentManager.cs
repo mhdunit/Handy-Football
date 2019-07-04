@@ -27,67 +27,69 @@ public class TournamentManager : MonoBehaviour {
 	public GameObject btnStartText;
 	public GameObject btnExit;
 
-    public GameObject TeamOwnerText, TeamUnlockedText;
+    public GameObject UnlockTeamText,OwnerTeamText;
 
 
     public AudioClip tapSfx;					//tap sound for buttons click
 	private bool canTap = true;					//flag to prevent double tap
-	private float buttonAnimationSpeed = 11;	//speed on animation effect when tapped on button
+	private float buttonAnimationSpeed = 11;    //speed on animation effect when tapped on button
 
-	void Awake () {
+    void Awake() {
 
         if (!PlayerPrefs.HasKey("TournomemtWinning"))
         {
-            PlayerPrefs.SetInt("TournomemtWinning",0);
+            PlayerPrefs.SetInt("TournomemtWinning", 0);
         }
-		//avoid starting the game in paused mode
-		Time.timeScale = 1.0f;
-		Time.fixedDeltaTime = 0.02f;
+        //avoid starting the game in paused mode
+        Time.timeScale = 1.0f;
+        Time.fixedDeltaTime = 0.02f;
 
         //Init Torunament Settings
         //Get torunament Level
         torunamentLevel = PlayerPrefs.GetInt("TorunamentLevel");
 
-		//if we are starting a new torunament
-		if(torunamentLevel == 0) {
-			//reset all previous data
-			resetTournamentSettings();
-			//Set Level A settings
-			setLevelASettings();
-		}
+        //if we are starting a new torunament
+        if (torunamentLevel == 0) {
+            //reset all previous data
+            resetTournamentSettings();
+            //Set Level A settings
+            setLevelASettings();
+        }
 
-		if(torunamentLevel == 1) {
-			setLevelBSettings();
-		}
+        if (torunamentLevel == 1) {
+            setLevelBSettings();
+        }
 
-		if(torunamentLevel == 2) {
-			setLevelCSettings();
-		}
+        if (torunamentLevel == 2) {
+            setLevelCSettings();
+        }
 
-		if(torunamentLevel == 3) {
-			setLevelDSettings();
-		}
+        if (torunamentLevel == 3) {
+            setLevelDSettings();
+        }
         if (torunamentLevel == 4)
         {
             setLevelESettings();
         }
-       
+
         //other settings
         canTap = true;
         if (PlayerPrefs.GetInt("TorunamentLevel") == 0)
         {
-            PlayerPrefs.SetInt("NewTeamUnlocked",0);
+            PlayerPrefs.SetInt("NewTeamUnlocked", 0);
         }
 
         if (PlayerPrefs.GetInt("NewTeamUnlocked") == 2)
-            TeamOwnerText.SetActive(true);
+            OwnerTeamText.SetActive(true);
+      
         else if (PlayerPrefs.GetInt("NewTeamUnlocked") == 3)
-            TeamUnlockedText.SetActive(true);
+            UnlockTeamText.SetActive(true);
         else
         {
-            TeamOwnerText.SetActive(false);
-            TeamUnlockedText.SetActive(false);
+            UnlockTeamText.SetActive(false);
+            OwnerTeamText.SetActive(false);
         }
+
 
 
     }
@@ -179,7 +181,7 @@ public class TournamentManager : MonoBehaviour {
 		}
 
 		//set start button text
-		btnStartText.GetComponent<TextMesh>().text = "Start";
+		btnStartText.GetComponent<TextMesh>().text = "شروع".faConvert();
 		btnStart.GetComponent<BoxCollider>().enabled = true;
 	}
 
@@ -217,10 +219,10 @@ public class TournamentManager : MonoBehaviour {
 
 		//set start button text
 		if(PlayerPrefs.GetInt("TorunamentMatchResult") == 1) {
-			btnStartText.GetComponent<TextMesh>().text = "Continue";
+			btnStartText.GetComponent<TextMesh>().text = "ادامه".faConvert();
 			btnStart.GetComponent<BoxCollider>().enabled = true;
 		} else {
-			btnStartText.GetComponent<TextMesh>().text = "Exit";
+			btnStartText.GetComponent<TextMesh>().text = "خروج".faConvert();
 			btnStart.GetComponent<BoxCollider>().enabled = true;
 			btnExit.SetActive(false);
 		}
@@ -266,11 +268,11 @@ public class TournamentManager : MonoBehaviour {
 
 		//set start button text
 		if(PlayerPrefs.GetInt("TorunamentMatchResult") == 1) {
-			btnStartText.GetComponent<TextMesh>().text = "Continue";
-			btnStart.GetComponent<BoxCollider>().enabled = true;
+			btnStartText.GetComponent<TextMesh>().text = "ادامه".faConvert();
+            btnStart.GetComponent<BoxCollider>().enabled = true;
 		} else {
-			btnStartText.GetComponent<TextMesh>().text = "Exit";
-			btnStart.GetComponent<BoxCollider>().enabled = true;
+			btnStartText.GetComponent<TextMesh>().text = "خروج".faConvert();
+            btnStart.GetComponent<BoxCollider>().enabled = true;
 			btnExit.SetActive(false);
 		}
 		
@@ -325,12 +327,12 @@ public class TournamentManager : MonoBehaviour {
         //set start button text
         if (PlayerPrefs.GetInt("TorunamentMatchResult") == 1)
         {
-            btnStartText.GetComponent<TextMesh>().text = "Continue";
+            btnStartText.GetComponent<TextMesh>().text = "ادامه".faConvert();
             btnStart.GetComponent<BoxCollider>().enabled = true;
         }
         else
         {
-            btnStartText.GetComponent<TextMesh>().text = "Exit";
+            btnStartText.GetComponent<TextMesh>().text = "خروج".faConvert();
             btnStart.GetComponent<BoxCollider>().enabled = true;
             btnExit.SetActive(false);
         }
@@ -366,7 +368,7 @@ public class TournamentManager : MonoBehaviour {
 
             LevelETeams[0].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelC0")];
             PlayerPrefs.SetInt("TournomemtWinning", PlayerPrefs.GetInt("TournomemtWinning") + 1);
-            btnStartText.GetComponent<TextMesh>().text = "Finish";
+            btnStartText.GetComponent<TextMesh>().text = "تمام".faConvert();
             btnStart.GetComponent<BoxCollider>().enabled = true;
             btnExit.SetActive(false);
 
@@ -376,7 +378,7 @@ public class TournamentManager : MonoBehaviour {
 
             LevelETeams[0].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelC1")];
 
-            btnStartText.GetComponent<TextMesh>().text = "Oh No!!";
+            btnStartText.GetComponent<TextMesh>().text = "وای نه !!".faConvert();
             btnStart.GetComponent<BoxCollider>().enabled = true;
             btnExit.SetActive(false);
         }

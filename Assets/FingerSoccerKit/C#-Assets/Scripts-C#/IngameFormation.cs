@@ -60,8 +60,10 @@ public class IngameFormation : MonoBehaviour {
 		touchManager ();
 
 		//monitor request label text
-		requestByLabel.GetComponent<TextMesh> ().text = "(Player " + formationChangeRequestID + ")";
-	}
+		requestByLabel.GetComponent<TextMesh> ().text =  "بازیکن " + formationChangeRequestID;
+        requestByLabel.GetComponent<TextMesh>().text = requestByLabel.GetComponent<TextMesh>().text.faConvert();
+
+    }
 
 
 	private RaycastHit hitInfo;

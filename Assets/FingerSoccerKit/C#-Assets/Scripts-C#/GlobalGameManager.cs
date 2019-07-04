@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
@@ -17,9 +17,9 @@ public class GlobalGameManager : MonoBehaviour {
     /// You can do this with RigidBody's freeze position.
     ///*************************************************************************///
 
-    public static string player1Name = "Player_1";
-    public static string player2Name = "Player_2";
-    public static string cpuName = "CPU";
+    public static string player1Name = "بازیکن 1";
+    public static string player2Name = "بازیکن 2";
+    public static string cpuName = "کامپیوتر";
 
 
     //You are free tp change these positions at any time to customize the location of each element
@@ -598,11 +598,11 @@ public class GlobalGameManager : MonoBehaviour {
 		opponentGoalsText.GetComponent<TextMesh>().text = opponentGoals.ToString();
 
 		if(gameMode == 0) {
-			playerOneName.GetComponent<TextMesh>().text = player1Name;
-			playerTwoName.GetComponent<TextMesh>().text = cpuName;
+			playerOneName.GetComponent<TextMesh>().text = player1Name.faConvert();
+			playerTwoName.GetComponent<TextMesh>().text = cpuName.faConvert();
 		} else if(gameMode == 1) {
-			playerOneName.GetComponent<TextMesh>().text = player1Name;
-			playerTwoName.GetComponent<TextMesh>().text = player2Name;
+			playerOneName.GetComponent<TextMesh>().text = player1Name.faConvert();
+			playerTwoName.GetComponent<TextMesh>().text = player2Name.faConvert();
 		} 
 	}
 

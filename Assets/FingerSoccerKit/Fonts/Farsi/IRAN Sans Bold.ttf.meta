@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 74e704c353f02114fb1d18666045cd0f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: IRAN Sans
+  fontNames:
+  - IRAN Sans
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 052c12ec01297db44b3092c409cae30d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

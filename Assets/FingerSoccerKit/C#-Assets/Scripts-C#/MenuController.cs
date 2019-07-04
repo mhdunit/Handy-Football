@@ -178,7 +178,7 @@ public class MenuController : MonoBehaviour {
 		float t = 0.0f; 
 		while (t <= 1.0f) {
 			t += Time.deltaTime * buttonAnimationSpeed;
-			_btn.transform.localScale = new Vector3( Mathf.SmoothStep(startingScale.x, destinationScale.x, t),
+            _btn.transform.localScale = new Vector3( Mathf.SmoothStep(startingScale.x, destinationScale.x, t),
 			                                        Mathf.SmoothStep(startingScale.y, destinationScale.y, t),
 			                                        _btn.transform.localScale.z);
 			yield return 0;

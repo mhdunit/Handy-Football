@@ -846,15 +846,15 @@ TextMesh:
   m_GameObject: {fileID: 5703020}
   m_Text: 1-1-1-1-1
   m_OffsetZ: 0
-  m_CharacterSize: 0.23
-  m_LineSpacing: 1
+  m_CharacterSize: 1
+  m_LineSpacing: 0
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: d6c9bfa88c6d2a048aa2ad467b7ba872, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -875,7 +875,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d6c9bfa88c6d2a048aa2ad467b7ba872, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1544,6 +1544,65 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.99999994, z: 1.0000001}
   m_Center: {x: 0, y: 0.00000047683716, z: 0}
+--- !u!1 &94097361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 94097363}
+  - component: {fileID: 94097362}
+  m_Layer: 0
+  m_Name: FarsiConvert
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &94097362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94097361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cfaa1c3e47a32c46ada42ab61a81c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ConvertedText:
+  - {fileID: 1849334082}
+  - {fileID: 2125230346}
+  - {fileID: 306185763}
+  - {fileID: 1556677953}
+  - {fileID: 1212608377}
+  - {fileID: 1912222657}
+  - {fileID: 249127837}
+  - {fileID: 1655214854}
+  - {fileID: 1752400650}
+  - {fileID: 1817204064}
+  - {fileID: 1410524076}
+  - {fileID: 1385931917}
+  - {fileID: 1512394109}
+  - {fileID: 777941889}
+  - {fileID: 1287252396}
+--- !u!4 &94097363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94097361}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 31
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &103207670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1739,18 +1798,18 @@ TextMesh:
   m_GameObject: {fileID: 227786214}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.12
-  m_LineSpacing: 1
+  m_CharacterSize: 0.9
+  m_LineSpacing: 0
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 6412080400f98fe4c8ddd3a7da81234a, type: 2}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
 --- !u!23 &227786217
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1768,7 +1827,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2c44759150c9b5d4e8766518fcada41b, type: 2}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1814,20 +1873,20 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249127836}
-  m_Text: Menu
+  m_Text: "\u0635\u0641\u062D\u0647 \u0627\u0635\u0644\u064A"
   m_OffsetZ: 0
-  m_CharacterSize: 0.13
-  m_LineSpacing: 1
+  m_CharacterSize: 0.8
+  m_LineSpacing: 0
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 6412080400f98fe4c8ddd3a7da81234a, type: 2}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
 --- !u!23 &249127838
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1845,7 +1904,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2c44759150c9b5d4e8766518fcada41b, type: 2}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1922,15 +1981,15 @@ TextMesh:
   m_GameObject: {fileID: 267189595}
   m_Text: 1-2-2
   m_OffsetZ: 0
-  m_CharacterSize: 0.23
-  m_LineSpacing: 1
+  m_CharacterSize: 1
+  m_LineSpacing: 0
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: d6c9bfa88c6d2a048aa2ad467b7ba872, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -1951,7 +2010,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d6c9bfa88c6d2a048aa2ad467b7ba872, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2011,9 +2070,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306185761}
-  m_Text: (player 1)
+  m_Text: "(\u0628\u0627\u0632\u064A\u06A9\u0646 1)"
   m_OffsetZ: 0
-  m_CharacterSize: 0.2
+  m_CharacterSize: 0.8
   m_LineSpacing: 1
   m_Anchor: 5
   m_Alignment: 2
@@ -2021,7 +2080,7 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -2042,7 +2101,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2181,7 +2240,7 @@ TextMesh:
   m_GameObject: {fileID: 354546767}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.25
+  m_CharacterSize: 0.8
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -2189,7 +2248,7 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -2210,7 +2269,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3580,9 +3639,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777941887}
-  m_Text: Restart
+  m_Text: "\u0634\u0631\u0648\u0639 \u0645\u062C\u062F\u062F"
   m_OffsetZ: 0
-  m_CharacterSize: 0.2
+  m_CharacterSize: 0.8
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -3590,7 +3649,7 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -3611,7 +3670,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3912,7 +3971,7 @@ TextMesh:
   m_GameObject: {fileID: 871989597}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.25
+  m_CharacterSize: 0.8
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -3920,7 +3979,7 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -3941,7 +4000,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4137,7 +4196,7 @@ TextMesh:
   m_GameObject: {fileID: 948817833}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.25
+  m_CharacterSize: 0.8
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -4145,7 +4204,7 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -4166,7 +4225,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4228,7 +4287,7 @@ TextMesh:
   m_GameObject: {fileID: 973261400}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.25
+  m_CharacterSize: 0.8
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -4236,7 +4295,7 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -4257,7 +4316,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4410,7 +4469,7 @@ TextMesh:
   m_GameObject: {fileID: 985490799}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.25
+  m_CharacterSize: 0.8
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -4418,7 +4477,7 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -4439,7 +4498,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4852,15 +4911,15 @@ TextMesh:
   m_GameObject: {fileID: 1084999128}
   m_Text: 1-4-0
   m_OffsetZ: 0
-  m_CharacterSize: 0.23
-  m_LineSpacing: 1
+  m_CharacterSize: 1
+  m_LineSpacing: 0
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: d6c9bfa88c6d2a048aa2ad467b7ba872, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -4881,7 +4940,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d6c9bfa88c6d2a048aa2ad467b7ba872, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5284,9 +5343,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212608375}
-  m_Text: Done
+  m_Text: "\u062A\u0645\u0627\u0645"
   m_OffsetZ: 0
-  m_CharacterSize: 0.23
+  m_CharacterSize: 1
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -5294,7 +5353,7 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278519156
@@ -5315,7 +5374,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5543,9 +5602,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287252394}
-  m_Text: Continue Tournament
+  m_Text: "\u0627\u062F\u0627\u0645\u0647 \u062A\u0648\u0631\u0646\u0648\u0645\u0646\u062A"
   m_OffsetZ: 0
-  m_CharacterSize: 0.2
+  m_CharacterSize: 0.8
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -5553,7 +5612,7 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -5574,7 +5633,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5973,7 +6032,7 @@ TextMesh:
   m_GameObject: {fileID: 1369345019}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.25
+  m_CharacterSize: 0.8
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -5981,7 +6040,7 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -6002,7 +6061,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6062,17 +6121,17 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385931915}
-  m_Text: Shoot to Gate
+  m_Text: "\u0634\u0648\u062A \u0633\u0645\u062A \u062F\u0631\u0648\u0627\u0632\u0647"
   m_OffsetZ: 0
-  m_CharacterSize: 0.2
-  m_LineSpacing: 1
+  m_CharacterSize: 0.7
+  m_LineSpacing: 0
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -6093,7 +6152,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6153,17 +6212,17 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410524074}
-  m_Text: Passes
+  m_Text: "\u067E\u0627\u0633"
   m_OffsetZ: 0
-  m_CharacterSize: 0.2
-  m_LineSpacing: 1
+  m_CharacterSize: 0.7
+  m_LineSpacing: 0
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -6184,7 +6243,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6247,15 +6306,15 @@ TextMesh:
   m_GameObject: {fileID: 1415010914}
   m_Text: 1-2-1-1
   m_OffsetZ: 0
-  m_CharacterSize: 0.23
-  m_LineSpacing: 1
+  m_CharacterSize: 1
+  m_LineSpacing: 0
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: d6c9bfa88c6d2a048aa2ad467b7ba872, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -6276,7 +6335,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d6c9bfa88c6d2a048aa2ad467b7ba872, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6537,15 +6596,15 @@ TextMesh:
   m_GameObject: {fileID: 1466153068}
   m_Text: 1-3-1
   m_OffsetZ: 0
-  m_CharacterSize: 0.23
-  m_LineSpacing: 1
+  m_CharacterSize: 1
+  m_LineSpacing: 0
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: d6c9bfa88c6d2a048aa2ad467b7ba872, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -6566,7 +6625,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d6c9bfa88c6d2a048aa2ad467b7ba872, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6705,7 +6764,7 @@ TextMesh:
   m_GameObject: {fileID: 1489362752}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.35
+  m_CharacterSize: 1.7
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -6713,7 +6772,7 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -6734,7 +6793,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6796,15 +6855,15 @@ TextMesh:
   m_GameObject: {fileID: 1497584876}
   m_Text: '00 : 00'
   m_OffsetZ: 0
-  m_CharacterSize: 0.12
-  m_LineSpacing: 1
+  m_CharacterSize: 0.9
+  m_LineSpacing: 0
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 6412080400f98fe4c8ddd3a7da81234a, type: 2}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -6825,7 +6884,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d4967359f80e37e4dbf61e0ae2d7b799, type: 2}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6887,7 +6946,7 @@ TextMesh:
   m_GameObject: {fileID: 1510703221}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.35
+  m_CharacterSize: 1.7
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -6895,7 +6954,7 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -6916,7 +6975,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7067,9 +7126,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512394107}
-  m_Text: Menu
+  m_Text: "\u0635\u0641\u062D\u0647 \u0627\u0635\u0644\u064A"
   m_OffsetZ: 0
-  m_CharacterSize: 0.2
+  m_CharacterSize: 0.8
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -7077,7 +7136,7 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -7098,7 +7157,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7254,17 +7313,17 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556677951}
-  m_Text: New Formation
+  m_Text: "\u062A\u0631\u06A9\u064A\u0628 \u0628\u0646\u062F\u064A \u062C\u062F\u064A\u062F"
   m_OffsetZ: 0
-  m_CharacterSize: 0.27
-  m_LineSpacing: 1
+  m_CharacterSize: 0.8
+  m_LineSpacing: 0
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -7285,7 +7344,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7485,18 +7544,18 @@ TextMesh:
   m_GameObject: {fileID: 1625361836}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.12
-  m_LineSpacing: 1
+  m_CharacterSize: 0.9
+  m_LineSpacing: 0
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 6412080400f98fe4c8ddd3a7da81234a, type: 2}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
 --- !u!23 &1625361839
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7514,7 +7573,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2c44759150c9b5d4e8766518fcada41b, type: 2}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7742,20 +7801,20 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655214852}
-  m_Text: Resume
+  m_Text: "\u0627\u062F\u0627\u0645\u0647"
   m_OffsetZ: 0
-  m_CharacterSize: 0.13
-  m_LineSpacing: 1
+  m_CharacterSize: 0.8
+  m_LineSpacing: 0
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 6412080400f98fe4c8ddd3a7da81234a, type: 2}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
 --- !u!23 &1655214855
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7773,7 +7832,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2c44759150c9b5d4e8766518fcada41b, type: 2}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8578,17 +8637,17 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752400648}
-  m_Text: Game Summary
+  m_Text: "\u062E\u0644\u0627\u0635\u0647 \u0628\u0627\u0632\u064A"
   m_OffsetZ: 0
-  m_CharacterSize: 0.2
-  m_LineSpacing: 1
+  m_CharacterSize: 1
+  m_LineSpacing: 0
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -8609,7 +8668,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8837,17 +8896,17 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817204062}
-  m_Text: Shoots
+  m_Text: "\u0634\u0648\u062A"
   m_OffsetZ: 0
-  m_CharacterSize: 0.2
-  m_LineSpacing: 1
+  m_CharacterSize: 0.7
+  m_LineSpacing: 0
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -8868,7 +8927,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af98199a4ae46a847bdf456dc3af0866, type: 3}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8914,17 +8973,17 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849334081}
-  m_Text: Player_1
+  m_Text: "\u0628\u0627\u0632\u064A\u06A9\u0646 1"
   m_OffsetZ: 0
-  m_CharacterSize: 0.09
-  m_LineSpacing: 1
+  m_CharacterSize: 0.7
+  m_LineSpacing: 0
   m_Anchor: 3
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 6412080400f98fe4c8ddd3a7da81234a, type: 2}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -8945,7 +9004,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d4967359f80e37e4dbf61e0ae2d7b799, type: 2}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9063,17 +9122,17 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912222656}
-  m_Text: '... Paused ...'
+  m_Text: "... \u0645\u06A9\u062B ..."
   m_OffsetZ: 0
-  m_CharacterSize: 0.25
-  m_LineSpacing: 1
+  m_CharacterSize: 2
+  m_LineSpacing: 0
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 6412080400f98fe4c8ddd3a7da81234a, type: 2}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -9094,7 +9153,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d4967359f80e37e4dbf61e0ae2d7b799, type: 2}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10306,17 +10365,17 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125230345}
-  m_Text: CPU
+  m_Text: "\u06A9\u0627\u0645\u067E\u064A\u0648\u062A\u0631"
   m_OffsetZ: 0
-  m_CharacterSize: 0.09
-  m_LineSpacing: 1
+  m_CharacterSize: 0.8
+  m_LineSpacing: 0
   m_Anchor: 5
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 6412080400f98fe4c8ddd3a7da81234a, type: 2}
+  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -10337,7 +10396,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d4967359f80e37e4dbf61e0ae2d7b799, type: 2}
+  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
