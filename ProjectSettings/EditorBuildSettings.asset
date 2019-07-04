@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Splash/Scene/Splash.unity
+    guid: 17a1e7e215eecdd4bad63382d90dd236
+  - enabled: 1
     path: Assets/FingerSoccerKit/C#-Assets/Scenes-C#/Menu-c#.unity
     guid: dd8968adaa6e57843886d49890d6a2e8
   - enabled: 1
