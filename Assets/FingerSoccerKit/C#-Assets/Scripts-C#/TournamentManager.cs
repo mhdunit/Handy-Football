@@ -74,17 +74,26 @@ public class TournamentManager : MonoBehaviour {
        
         //other settings
         canTap = true;
+        if (PlayerPrefs.GetInt("TorunamentLevel") == 0)
+        {
+            PlayerPrefs.SetInt("NewTeamUnlocked",0);
+        }
 
         if (PlayerPrefs.GetInt("NewTeamUnlocked") == 2)
             TeamOwnerText.SetActive(true);
         else if (PlayerPrefs.GetInt("NewTeamUnlocked") == 3)
-            TeamOwnerText.SetActive(true);
+            TeamUnlockedText.SetActive(true);
+        else
+        {
+            TeamOwnerText.SetActive(false);
+            TeamUnlockedText.SetActive(false);
+        }
+
 
     }
 
 
 	void Update () {
-
        // print("Team Class : " + PlayerPrefs.GetInt("Team Class") + " , Tournomemt Winning : " + PlayerPrefs.GetInt("TournomemtWinning"));
         if (canTap) {
 			StartCoroutine(tapManager());

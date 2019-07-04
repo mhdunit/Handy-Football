@@ -16,12 +16,14 @@ public class MenuController : MonoBehaviour {
 
 	//Reference to GameObjects
 	public GameObject playerWins;				//UI 3d text object
-	public GameObject playerMoney;				//UI 3d text object
+	public GameObject playerMoney;              //UI 3d text object
 
-	//*****************************************************************************
-	// Init. Updates the 3d texts with saved values fetched from playerprefs.
-	//*****************************************************************************
-	void Awake (){
+    public Texture2D[] availableFlags;
+    public TextMesh[] TeamPrice;
+    //*****************************************************************************
+    // Init. Updates the 3d texts with saved values fetched from playerprefs.
+    //*****************************************************************************
+    void Awake() {
         //MHD
 
         if (PlayerPrefs.GetInt("FirstNationalTeam") != 3 || PlayerPrefs.GetInt("TeamClass") == 1 && PlayerPrefs.GetInt("TournomemtWinning") == 1 || PlayerPrefs.GetInt("TeamClass") == 2 && PlayerPrefs.GetInt("TournomemtWinning") == 2)
@@ -29,11 +31,21 @@ public class MenuController : MonoBehaviour {
 
 
         Time.timeScale = 1.0f;
-		Time.fixedDeltaTime = 0.02f;
-		
-		playerWins.GetComponent<TextMesh>().text = "" + PlayerPrefs.GetInt("PlayerWins");
-		playerMoney.GetComponent<TextMesh>().text = "" + PlayerPrefs.GetInt("PlayerMoney");
-	}
+        Time.fixedDeltaTime = 0.02f;
+
+        playerWins.GetComponent<TextMesh>().text = "" + PlayerPrefs.GetInt("PlayerWins");
+        playerMoney.GetComponent<TextMesh>().text = "" + PlayerPrefs.GetInt("PlayerMoney");
+
+
+        //Check For UnlockTeam
+        for (int i = 28; i < TeamPrice.Length; i++)
+        {
+            if (PlayerPrefs.GetInt("ActiveTeamLock" + availableFlags[i]) == 3 && PlayerPrefs.GetInt("PlayerMoney") >= int.Parse(TeamPrice[i].text))
+                 PlayerPrefs.SetInt("Team" + availableFlags[i] + "LockState", 3); // Unlock A National Team
+        }
+    }
+
+
 
 
 	IEnumerator Start() {

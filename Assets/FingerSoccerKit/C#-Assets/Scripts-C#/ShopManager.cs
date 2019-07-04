@@ -106,7 +106,23 @@ public class ShopManager : MonoBehaviour {
                     //MHD
                     firstMenu.SetActive(false);
                     IranFCMenu.SetActive(true);
-                    print("Iran FC Team");
+                    for (int i = 28; i < TeamsLocked.Length -16; i++)
+                    {
+                        int teamPrice = int.Parse(TeamPrice[i].text);
+
+                        if (PlayerPrefs.GetInt("Team" + TeamsFlag[i] + "isTheFirstTeam") == 3 && PlayerPrefs.GetInt("Team" + TeamsFlag[i] + "LockState") == 3)
+                        {
+                            TeamsLocked[i].GetComponent<Renderer>().material.mainTexture = TeamsFlag[i];
+                            TeamPrice[i].text = "Unlocked";
+                            TeamPrice[i].color = Color.black;
+                        }
+                        else if (PlayerPrefs.GetInt("ActiveTeamLock" + TeamsFlag[i]) == 3 && PlayerPrefs.GetInt("PlayerMoney") >= teamPrice)
+                        {
+                            TeamsLocked[i].GetComponent<Renderer>().material.mainTexture = TeamsFlag[i];
+                            TeamPrice[i].text = "Unlocked";
+                            TeamPrice[i].color = Color.black;
+                        }
+                    }
                     break;
 
                 case "World FC":
@@ -118,7 +134,23 @@ public class ShopManager : MonoBehaviour {
                     //MHD
                     firstMenu.SetActive(false);
                     EroupeFCMenu.SetActive(true);
-                    print("World FC Team");
+                    for (int i = 44; i < TeamsLocked.Length; i++)
+                    {
+                        int teamPrice = int.Parse(TeamPrice[i].text);
+
+                        if (PlayerPrefs.GetInt("Team" + TeamsFlag[i] + "isTheFirstTeam") == 3 && PlayerPrefs.GetInt("Team" + TeamsFlag[i] + "LockState") == 3)
+                        {
+                            TeamsLocked[i].GetComponent<Renderer>().material.mainTexture = TeamsFlag[i];
+                            TeamPrice[i].text = "Unlocked";
+                            TeamPrice[i].color = Color.black;
+                        }
+                        else if (PlayerPrefs.GetInt("ActiveTeamLock" + TeamsFlag[i]) == 3 && PlayerPrefs.GetInt("PlayerMoney") >= teamPrice)
+                        {
+                            TeamsLocked[i].GetComponent<Renderer>().material.mainTexture = TeamsFlag[i];
+                            TeamPrice[i].text = "Unlocked";
+                            TeamPrice[i].color = Color.black;
+                        }
+                    }
                     break;
 
                 case "Btn-Back":

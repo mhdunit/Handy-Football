@@ -5,124 +5,126 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class GlobalGameManager : MonoBehaviour {
-		
-	///*************************************************************************///
-	/// Main Game Controller.
-	/// This class controls main aspects of the game like rounds, levels, scores and ...
-	/// Please note that the game always happens between 2 player: (Player-1 vs Player-2) or (Player-1 vs AI)
-	/// Player-2 and AI are the same in some aspects like when they got their turns, but they use different controllers.
-	/// Player-2 uses a similar controller as Player-1, while AI uses an artificial intelligent routine to play the game.
-	///
-	/// Important! All units and ball object inside the game should be fixed at Z=-0.5f positon at all times. 
-	/// You can do this with RigidBody's freeze position.
-	///*************************************************************************///
 
-	public static string player1Name = "Player_1";
-	public static string player2Name = "Player_2";
-	public static string cpuName = "CPU";
+    ///*************************************************************************///
+    /// Main Game Controller.
+    /// This class controls main aspects of the game like rounds, levels, scores and ...
+    /// Please note that the game always happens between 2 player: (Player-1 vs Player-2) or (Player-1 vs AI)
+    /// Player-2 and AI are the same in some aspects like when they got their turns, but they use different controllers.
+    /// Player-2 uses a similar controller as Player-1, while AI uses an artificial intelligent routine to play the game.
+    ///
+    /// Important! All units and ball object inside the game should be fixed at Z=-0.5f positon at all times. 
+    /// You can do this with RigidBody's freeze position.
+    ///*************************************************************************///
+
+    public static string player1Name = "Player_1";
+    public static string player2Name = "Player_2";
+    public static string cpuName = "CPU";
 
 
-	//You are free tp change these positions at any time to customize the location of each element
-	public static Vector3 penaltyKickStartPosition = new Vector3(0, -1, -0.5f);
-	public static Vector3 penaltyKickGKPosition = new Vector3(13, -1, -0.5f);
-	public static Vector3 penaltyKickBallPosition = new Vector3(5, -1, -0.5f);
+    //You are free tp change these positions at any time to customize the location of each element
+    public static Vector3 penaltyKickStartPosition = new Vector3(0, -1, -0.5f);
+    public static Vector3 penaltyKickGKPosition = new Vector3(13, -1, -0.5f);
+    public static Vector3 penaltyKickBallPosition = new Vector3(5, -1, -0.5f);
 
-	//Used just in penalty mode
-	public static Vector3 playerDestination;	//destination for player unit after each penlaty round
-	public static Vector3 AIDestination;		//destination for AI unit after each penlaty round
+    //Used just in penalty mode
+    public static Vector3 playerDestination;    //destination for player unit after each penlaty round
+    public static Vector3 AIDestination;        //destination for AI unit after each penlaty round
 
-	// Available Game Modes:
-	/*
+    // Available Game Modes:
+    /*
 	Indexes:
 	0 = 1 player against cpu (normal or Tournament)
 	1 = 2 player against each other on the same platform/device
 	2 = Penalty Kicks
 	*/
-	public static int gameMode;
-	public static bool isPenaltyKick;
+    public static int gameMode;
+    public static bool isPenaltyKick;
 
-	//Odd rounds are player (Player-1) turn and Even rounds are AI (Player-2)'s
-	public static int round;
+    //Odd rounds are player (Player-1) turn and Even rounds are AI (Player-2)'s
+    public static int round;
 
-	//in-game formation buttons (these are not needed in penalty kicks mode!)
-	public GameObject p1FormationButton;
-	public GameObject p2FormationButton;
+    //in-game formation buttons (these are not needed in penalty kicks mode!)
+    public GameObject p1FormationButton;
+    public GameObject p2FormationButton;
 
 
-	//available time to think and shoot
-	public static float baseShootTime = 15;		//fixed shoot time for all players and AI
-	private float p1ShootTime;					//additional time (based on the selected team) for p1
-	private float p2ShootTime;					//additional time (based on the selected team) for p2 or AI
-	public GameObject p1TimeBar;
-	public GameObject p2TimeBar;
-	private float p1TimeBarInitScale;
-	private float p1TimeBarCurrentScale;
-	private float p2TimeBarInitScale;
-	private float p2TimeBarCurrentScale;
+    //available time to think and shoot
+    public static float baseShootTime = 15;     //fixed shoot time for all players and AI
+    private float p1ShootTime;                  //additional time (based on the selected team) for p1
+    private float p2ShootTime;                  //additional time (based on the selected team) for p2 or AI
+    public GameObject p1TimeBar;
+    public GameObject p2TimeBar;
+    private float p1TimeBarInitScale;
+    private float p1TimeBarCurrentScale;
+    private float p2TimeBarInitScale;
+    private float p2TimeBarCurrentScale;
 
-	//mamixmu distance that players can drag away from selected unit to shoot the ball (is in direct relation with shoot power)
-	public static float maxDistance = 3.0f;
+    //mamixmu distance that players can drag away from selected unit to shoot the ball (is in direct relation with shoot power)
+    public static float maxDistance = 3.0f;
 
-	//Turns in flags
-	public static bool playersTurn;
-	public static bool opponentsTurn;
+    //Turns in flags
+    public static bool playersTurn;
+    public static bool opponentsTurn;
 
-	//After players did their shoots, the round changes after this amount of time.
-	public static float timeStepToAdvanceRound = 3; 
+    //After players did their shoots, the round changes after this amount of time.
+    public static float timeStepToAdvanceRound = 3;
 
-	//Special occasions
-	public static bool goalHappened;
-	public static bool shootHappened;
-	public static bool gameIsFinished;
-	public static int goalLimit = 10; //To finish the game quickly, without letting the GameTime end.
+    //Special occasions
+    public static bool goalHappened;
+    public static bool shootHappened;
+    public static bool gameIsFinished;
+    public static int goalLimit = 10; //To finish the game quickly, without letting the GameTime end.
 
-	///Game timer vars
-	public static float gameTimer; //in seconds
-	private string remainingTime;
-	private int seconds;
-	private int minutes;
+    ///Game timer vars
+    public static float gameTimer; //in seconds
+    private string remainingTime;
+    private int seconds;
+    private int minutes;
 
-	//Game Status
-	public static int playerGoals;
-	public static int opponentGoals;
-	public static float gameTime; //Main game timer (in seconds). Always fixed.
+    //Game Status
+    public static int playerGoals;
+    public static int opponentGoals;
+    public static float gameTime; //Main game timer (in seconds). Always fixed.
 
-	//summary information
-	public static int playerPasses;
-	public static int playerShoots;
-	public static int playerShootToGate;
-	public static int opponentPasses;
-	public static int opponentShoots;
-	public static int opponentShootToGate;
+    //summary information
+    public static int playerPasses;
+    public static int playerShoots;
+    public static int playerShootToGate;
+    public static int opponentPasses;
+    public static int opponentShoots;
+    public static int opponentShootToGate;
 
-	//gameObject references
-	private GameObject playerAIController;
-	private GameObject opponentAIController;
-	public GameObject goalPlane;
+    //gameObject references
+    private GameObject playerAIController;
+    private GameObject opponentAIController;
+    public GameObject goalPlane;
 
-	private GameObject ball;
-	private Vector3 ballStartingPosition;
+    private GameObject ball;
+    private Vector3 ballStartingPosition;
 
-	//AudioClips
-	public AudioClip startWistle;
-	public AudioClip finishWistle;
-	public AudioClip[] goalSfx;
-	public AudioClip[] goalHappenedSfx;
-	public AudioClip[] crowdChants;
-	private bool canPlayCrowdChants;
+    //AudioClips
+    public AudioClip startWistle;
+    public AudioClip finishWistle;
+    public AudioClip[] goalSfx;
+    public AudioClip[] goalHappenedSfx;
+    public AudioClip[] crowdChants;
+    private bool canPlayCrowdChants;
 
-	//Public references
-	public GameObject gameStatusPlane;			//user to show win/lose result at the end of match
-	public GameObject continueTournamentBtn;	//special tournament button to advance in tournament incase of win
-	public GameObject statusTextureObject;		//plane we use to show the result texture in 3d world
-	public Texture2D[] statusModes;				//Available status textures
+    //Public references
+    public GameObject gameStatusPlane;          //user to show win/lose result at the end of match
+    public GameObject continueTournamentBtn;	//special tournament button to advance in tournament incase of win
+    public GameObject restartBtn;
+    public GameObject statusTextureObject;      //plane we use to show the result texture in 3d world
+    public Texture2D[] statusModes;				//Available status textures
 
     public OpponentAI UnlockableTeams;
 
-	//*****************************************************************************
-	// Init. 
-	//*****************************************************************************
-	void Awake (){
+
+    //*****************************************************************************
+    // Init. 
+    //*****************************************************************************
+    void Awake (){
 
         PlayerPrefs.SetInt("NewTeamUnlocked", 0);
         //debug
@@ -627,27 +629,39 @@ public class GlobalGameManager : MonoBehaviour {
 				int playerMoney = PlayerPrefs.GetInt("PlayerMoney");
 				
 				PlayerPrefs.SetInt("PlayerWins", ++playerWins);			//add to wins counter
-				PlayerPrefs.SetInt("PlayerMoney", playerMoney + 100);   //handful of coins as the prize!
+				PlayerPrefs.SetInt("PlayerMoney", playerMoney + 50);   //handful of coins as the prize!
 
                 //if this is a tournament match, update it with win state and advance.
                 if (PlayerPrefs.GetInt("IsTournament") == 1) {
                     PlayerPrefs.SetInt("TorunamentMatchResult", 1);
                     PlayerPrefs.SetInt("TorunamentLevel", PlayerPrefs.GetInt("TorunamentLevel", 0) + 1);
                     continueTournamentBtn.SetActive(true);
+                    restartBtn.SetActive(false);
 
                     //Unlock Teams 
 
                     if (PlayerPrefs.GetInt("TeamClass") == 0) //if is National
-                    {   
-                        PlayerPrefs.SetInt("Team" + UnlockableTeams.availableFlags[PlayerPrefs.GetInt("OpponentFlag")] + "LockState", 3); // Unlock A National Team
-                        PlayerPrefs.SetInt("NewTeamUnlocked", 2);
+                    {
+                        if (PlayerPrefs.GetInt("Team" + UnlockableTeams.availableFlags[PlayerPrefs.GetInt("OpponentFlag")] + "LockState") != 3)
+                        {
+                            PlayerPrefs.SetInt("Team" + UnlockableTeams.availableFlags[PlayerPrefs.GetInt("OpponentFlag")] + "LockState", 3); // Unlock A National Team
+                            PlayerPrefs.SetInt("NewTeamUnlocked", 2);
+                        }
+                        else
+                            PlayerPrefs.SetInt("NewTeamUnlocked", 0);
                     }
                     else
                     {
-                        PlayerPrefs.SetInt("ActiveTeamLock" + UnlockableTeams.availableFlags[PlayerPrefs.GetInt("OpponentFlag")], 3); // Unlock A Other Team
-                        PlayerPrefs.SetInt("NewTeamUnlocked", 3);
+                        if (PlayerPrefs.GetInt("ActiveTeamLock" + UnlockableTeams.availableFlags[PlayerPrefs.GetInt("OpponentFlag")]) != 3)
+                        {
+                            PlayerPrefs.SetInt("ActiveTeamLock" + UnlockableTeams.availableFlags[PlayerPrefs.GetInt("OpponentFlag")], 3); // Unlock  Other Teams
+                            PlayerPrefs.SetInt("NewTeamUnlocked", 3);
+                        }
+                        else
+                            PlayerPrefs.SetInt("NewTeamUnlocked", 0);
                     }
-                        
+
+
 
                 }
 				
@@ -661,7 +675,8 @@ public class GlobalGameManager : MonoBehaviour {
 					PlayerPrefs.SetInt("TorunamentMatchResult", 0);
 					PlayerPrefs.SetInt("TorunamentLevel", PlayerPrefs.GetInt("TorunamentLevel", 0) + 1);
 					continueTournamentBtn.SetActive(true);
-				}
+                    restartBtn.SetActive(false);
+                }
 				
 			} else if(opponentGoals == playerGoals) {
 			
@@ -674,6 +689,7 @@ public class GlobalGameManager : MonoBehaviour {
 					PlayerPrefs.SetInt("TorunamentMatchResult", 0);
 					PlayerPrefs.SetInt("TorunamentLevel", PlayerPrefs.GetInt("TorunamentLevel", 0) + 1);
 					continueTournamentBtn.SetActive(true);
+                    restartBtn.SetActive(false);
 				}
 			}	
 		} else if(gameMode == 1) {

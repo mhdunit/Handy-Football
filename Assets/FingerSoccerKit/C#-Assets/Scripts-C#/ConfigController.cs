@@ -129,6 +129,7 @@ public class ConfigController : MonoBehaviour {
     }
      void Start()
     {
+
         if (Application.loadedLevelName == "TeamChooser")
         {
             print("Team Class : " + PlayerPrefs.GetInt("TeamClass"));
@@ -153,8 +154,8 @@ public class ConfigController : MonoBehaviour {
     // FSM
     //*****************************************************************************
     void Update (){
-      //  print("TeamClass : " + PlayerPrefs.GetInt("TeamClass")+ " , " + "p1TeamCounter : " + p1TeamCounter);
-      //  print("Reverse : "+ TeamUnlockTempReverse);
+        //  print("TeamClass : " + PlayerPrefs.GetInt("TeamClass")+ " , " + "p1TeamCounter : " + p1TeamCounter);
+        //  print("Reverse : "+ TeamUnlockTempReverse);
         if (Input.GetKey(KeyCode.R))
         {
             PlayerPrefs.DeleteAll();
@@ -387,6 +388,7 @@ public class ConfigController : MonoBehaviour {
                     StartCoroutine(animateButton(objectHit));   //button scale-animation to user input
                     yield return new WaitForSeconds(0.07f);
                     PlayerPrefs.SetInt("Team" + availableTeams[p1TeamCounter] + "LockState", 3); // Unlock A Team
+                    PlayerPrefs.SetInt("Team" + availableTeams[p1TeamCounter] + "isTheFirstTeam", 3); // Unlock A Team
                     if (PlayerPrefs.GetInt("TeamClass") == 0)
                         PlayerPrefs.SetInt("FirstNationalTeam", 3); // national Team Unlocked
                     else if (PlayerPrefs.GetInt("TeamClass") == 1)
