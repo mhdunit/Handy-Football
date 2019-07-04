@@ -126,11 +126,7 @@ public class GlobalGameManager : MonoBehaviour {
     // Init. 
     //*****************************************************************************
     void Awake (){
-        // if showing ads Are null
-        if (!PlayerPrefs.HasKey("RewardedShowingTime"))
-        {
-            PlayerPrefs.SetInt("RewardedShowingTime", 0);
-        }
+
 
 
         PlayerPrefs.SetInt("NewTeamUnlocked", 0);
@@ -622,8 +618,8 @@ public class GlobalGameManager : MonoBehaviour {
 		print("GAME IS FINISHED.");
 
         //MHD Ads
-        PlayerPrefs.SetInt("RewardedShowingTime", PlayerPrefs.GetInt("RewardedShowingTime") + 1);
-        if (PlayerPrefs.GetInt("RewardedShowingTime") % 2 == 0)
+        int r = Random.Range(1,10);
+        if (r % 2 == 0)
         TSU.ShowTapSellVideo();
 		
 		//show gameStatusPlane
