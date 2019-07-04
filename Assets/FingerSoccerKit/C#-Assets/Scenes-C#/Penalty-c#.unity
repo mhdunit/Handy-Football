@@ -4576,6 +4576,52 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &1530082626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1530082628}
+  - component: {fileID: 1530082627}
+  m_Layer: 0
+  m_Name: Ads
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1530082627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530082626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed09cd7b0d68434eabdc9b2608fc319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TapSellKey: rrdbkegtdhnslhbarprppgbflnfghpesegltpkoohqfqekfljpbtotahbarfktdhccatap
+  VideoZoneID: 5b9297a26528ee0001f1f04d
+  RewardedAnim: {fileID: 0}
+--- !u!4 &1530082628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530082626}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.13276595, y: -1.0472637, z: -1.09375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1541667866
 GameObject:
   m_ObjectHideFlags: 0
@@ -5845,7 +5891,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7710c6be08b353e44858b2dd9e153556, type: 3}
   gameStatusPlane: {fileID: 1072002814}
   continueTournamentBtn: {fileID: 360544342}
-  restartBtn: {fileID: 0}
+  restartBtn: {fileID: 1303419874}
   statusTextureObject: {fileID: 1996204605}
   statusModes:
   - {fileID: 2800000, guid: b70472af3287ab946b6db845f9224f18, type: 3}
@@ -5853,7 +5899,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 69e7033f0c18dd24aabf54816008b243, type: 3}
   - {fileID: 2800000, guid: c992cf71dbdfc154d88c8d53f782dd22, type: 3}
   - {fileID: 2800000, guid: 56cff552926cf6a4b9a0a868d42f43c0, type: 3}
-  UnlockableTeams: {fileID: 0}
+  UnlockableTeams: {fileID: 185}
+  TSU: {fileID: 1530082627}
   timeText: {fileID: 1497584876}
   playerGoalsText: {fileID: 1625361836}
   opponentGoalsText: {fileID: 227786214}

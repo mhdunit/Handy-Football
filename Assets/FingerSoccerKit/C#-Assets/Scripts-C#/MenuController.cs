@@ -20,6 +20,7 @@ public class MenuController : MonoBehaviour {
 
     public Texture2D[] availableFlags;
     public TextMesh[] TeamPrice;
+    public TapSellUse TPU;
     //*****************************************************************************
     // Init. Updates the 3d texts with saved values fetched from playerprefs.
     //*****************************************************************************
@@ -145,8 +146,9 @@ public class MenuController : MonoBehaviour {
 				case "Status_2":
 					playSfx(tapSfx);
 					StartCoroutine(animateButton(objectHit));
-					yield return new WaitForSeconds(1.0f);
-					SceneManager.LoadScene("BuyCoinPack-c#");
+					yield return new WaitForSeconds(0.7f);
+                    TPU.ShowTapSellVideo();
+                    print("Show Tapsell Video");
 					break;
 
 				case "Btn-03":

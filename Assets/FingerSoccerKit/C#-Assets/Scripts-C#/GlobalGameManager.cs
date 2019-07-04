@@ -119,12 +119,19 @@ public class GlobalGameManager : MonoBehaviour {
     public Texture2D[] statusModes;				//Available status textures
 
     public OpponentAI UnlockableTeams;
+    public TapSellUse TSU;
 
 
     //*****************************************************************************
     // Init. 
     //*****************************************************************************
     void Awake (){
+        // if showing ads Are null
+        if (!PlayerPrefs.HasKey("RewardedShowingTime"))
+        {
+            PlayerPrefs.SetInt("RewardedShowingTime", 0);
+        }
+
 
         PlayerPrefs.SetInt("NewTeamUnlocked", 0);
         //debug
@@ -613,6 +620,11 @@ public class GlobalGameManager : MonoBehaviour {
 		//Play gameFinish wistle
 		playSfx(finishWistle);
 		print("GAME IS FINISHED.");
+
+        //MHD Ads
+        PlayerPrefs.SetInt("RewardedShowingTime", PlayerPrefs.GetInt("RewardedShowingTime") + 1);
+        if (PlayerPrefs.GetInt("RewardedShowingTime") % 2 == 0)
+        TSU.ShowTapSellVideo();
 		
 		//show gameStatusPlane
 		gameStatusPlane.SetActive(true);
