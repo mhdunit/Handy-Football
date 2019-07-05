@@ -1877,9 +1877,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640453382}
-  m_Text: "3 \u062F\u0642\u064A\u0642\u0647"
+  m_Text: 3 Min
   m_OffsetZ: 0
-  m_CharacterSize: 0.8
+  m_CharacterSize: 1
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -1887,7 +1887,7 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -1908,7 +1908,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 74e704c353f02114fb1d18666045cd0f, type: 3}
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2051,9 +2051,9 @@ MonoBehaviour:
   - 1-4-0
   - 1-1-1-1-1
   availableTimes:
-  - "3 \u062F\u0642\u064A\u0642\u0647"
-  - "5 \u062F\u0642\u064A\u0642\u0647"
-  - "8 \u062F\u0642\u064A\u0642\u0647"
+  - 3 Min
+  - 5 Min
+  - 8 Min
   p1Team: {fileID: 1561705340}
   p1PowerBar: {fileID: 1684617036}
   p1TimeBar: {fileID: 1163062695}
@@ -5257,7 +5257,6 @@ MonoBehaviour:
   - {fileID: 1089340789}
   - {fileID: 2135361068}
   - {fileID: 113938566}
-  - {fileID: 640453384}
 --- !u!4 &1947891028
 Transform:
   m_ObjectHideFlags: 0
