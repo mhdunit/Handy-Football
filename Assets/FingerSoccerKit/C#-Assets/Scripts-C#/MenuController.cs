@@ -147,8 +147,6 @@ public class MenuController : MonoBehaviour {
 					playSfx(tapSfx);
 					StartCoroutine(animateButton(objectHit));
 					yield return new WaitForSeconds(0.7f);
-                    TPU.ShowTapSellVideo();
-                    print("Show Tapsell Video");
 					break;
 
 				case "Btn-03":
@@ -158,11 +156,13 @@ public class MenuController : MonoBehaviour {
 					Application.Quit();
 					break;	
 
-				case "FreeCoinsButton":
+				case "Rewarded Icon":
 					playSfx(tapSfx);
 					StartCoroutine(animateButton(objectHit));
 					yield return new WaitForSeconds(1.0f);
-					break;
+                    TPU.ShowTapSellVideo();
+                    print("Show Tapsell Video");
+                    break;
 			}	
 		}
 	}
