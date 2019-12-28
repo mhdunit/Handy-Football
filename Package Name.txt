@@ -1,0 +1,7 @@
+Bazzar :
+
+com.Skinpacks.handyfootball
+
+Google Play :
+
+com.spgames.handyfootball

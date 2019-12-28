@@ -618,8 +618,8 @@ public class GlobalGameManager : MonoBehaviour {
 		print("GAME IS FINISHED.");
 
         //MHD Ads
-        int r = Random.Range(1,10);
-        if (r % 2 == 0)
+        //int r = Random.Range(1,10);
+        //if (r % 2 == 0)
         TSU.ShowTapSellVideo();
 		
 		//show gameStatusPlane
