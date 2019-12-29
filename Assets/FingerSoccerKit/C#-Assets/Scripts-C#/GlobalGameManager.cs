@@ -119,7 +119,7 @@ public class GlobalGameManager : MonoBehaviour {
     public Texture2D[] statusModes;				//Available status textures
 
     public OpponentAI UnlockableTeams;
-    public TapSellUse TSU;
+    public AdsManager AM;
 
 
     //*****************************************************************************
@@ -617,10 +617,10 @@ public class GlobalGameManager : MonoBehaviour {
 		playSfx(finishWistle);
 		print("GAME IS FINISHED.");
 
-        //MHD Ads
-        //int r = Random.Range(1,10);
-        //if (r % 2 == 0)
-        TSU.ShowTapSellVideo();
+		//MHD Ads
+		//int r = Random.Range(1,10);
+		//if (r % 2 == 0)
+		AM.ShowInterstitialBaseOnMarket();
 		
 		//show gameStatusPlane
 		gameStatusPlane.SetActive(true);
