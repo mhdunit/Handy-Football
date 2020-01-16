@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using GooglePlayGames;
 
 public class MenuController : MonoBehaviour {
 		
@@ -162,7 +163,15 @@ public class MenuController : MonoBehaviour {
 					yield return new WaitForSeconds(1.0f);
                     TPU.ShowTapSellVideo();
                     print("Show Tapsell Video");
-                    break;
+                    break;					
+				case "Leaderboard":
+					playSfx(tapSfx);
+					StartCoroutine(animateButton(objectHit));
+					yield return new WaitForSeconds(0.5f);
+					// show leaderboard UI
+					PlayGamesPlatform.Instance.ShowLeaderboardUI(GPGSIds.leaderboard);
+					print("Leaderboard");
+					break;
 			}	
 		}
 	}

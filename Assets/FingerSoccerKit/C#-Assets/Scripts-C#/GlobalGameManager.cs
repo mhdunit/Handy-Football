@@ -620,7 +620,7 @@ public class GlobalGameManager : MonoBehaviour {
 		//MHD Ads
 		//int r = Random.Range(1,10);
 		//if (r % 2 == 0)
-		AM.ShowInterstitialBaseOnMarket();
+		//AM.ShowRewardedVideoBaseOnMarket();
 		
 		//show gameStatusPlane
 		gameStatusPlane.SetActive(true);
@@ -712,6 +712,11 @@ public class GlobalGameManager : MonoBehaviour {
 				statusTextureObject.GetComponent<Renderer>().material.mainTexture = statusModes[3];
 			} 
 		}
+		// post score 12345 to leaderboard ID "Cfji293fjsie_QA")
+		Social.ReportScore(PlayerPrefs.GetInt("PlayerWins"), GPGSIds.leaderboard, (bool success) => {
+			// handle success or failure
+		});
+		AM.ShowRewardedVideoBaseOnMarket();
 	}
 
 

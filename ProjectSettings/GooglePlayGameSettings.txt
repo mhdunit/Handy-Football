@@ -1,0 +1,9 @@
+lastUpgrade=01006
+proj.pluginVersion=0.10.06
+proj.AppId=186551326471
+and.BundleId=com.spgames.handyfootball
+proj.classDir=Assets
+proj.ConstantsClassName=GPGSIds
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--%0d%0aGoogle+Play+game+services+IDs.%0d%0aSave+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.%0d%0a--%3e%0d%0a%3cresources%3e%0d%0a++%3c%21--+app_id+--%3e%0d%0a++%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e186551326471%3c%2fstring%3e%0d%0a++%3c%21--+package_name+--%3e%0d%0a++%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.spgames.handyfootball%3c%2fstring%3e%0d%0a++%3c%21--+leaderboard+%d8%ac%d8%af%d9%88%d9%84+%d8%a8%d8%b1%d8%aa%d8%b1%db%8c%d9%86+%d8%a8%d8%a7%d8%b2%db%8c%da%a9%d9%86%d8%a7%d9%86+--%3e%0d%0a++%3cstring+name%3d%22leaderboard%22+translatable%3d%22false%22%3eCgkIh67N-rYFEAIQAQ%3c%2fstring%3e%0d%0a%3c%2fresources%3e
+and.ClientId=
+android.SetupDone=true

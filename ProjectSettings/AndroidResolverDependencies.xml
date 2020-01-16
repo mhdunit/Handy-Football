@@ -10,6 +10,7 @@
     <package>com.google.android.gms:play-services-tasks:16.0.0</package>
     <package>com.google.firebase:firebase-iid:16.0.0</package>
     <package>com.google.firebase:firebase-messaging:17.4.0</package>
+    <package>com.google.games:gpgs-plugin-support:0.10.06</package>
   </packages>
   <files>
     <file>Assets/Plugins/Android/androidx.annotation.annotation-1.0.0.jar</file>
@@ -48,8 +49,13 @@
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-base-18.2.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-identifier-17.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-18.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-base-16.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-auth-17.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-auth-api-phone-17.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-auth-base-17.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-base-17.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-basement-17.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-drive-17.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-games-18.0.1.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-gass-18.2.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-gcm-16.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-iid-16.0.0.aar</file>
@@ -59,19 +65,21 @@
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-impl-17.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-sdk-17.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-sdk-api-17.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-nearby-17.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-places-placereport-16.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-stats-17.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-tasks-16.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-tasks-17.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.firebase.firebase-common-16.0.3.aar</file>
     <file>Assets/Plugins/Android/com.google.firebase.firebase-iid-17.1.0.aar</file>
     <file>Assets/Plugins/Android/com.google.firebase.firebase-iid-interop-16.0.1.aar</file>
     <file>Assets/Plugins/Android/com.google.firebase.firebase-measurement-connector-17.0.1.aar</file>
     <file>Assets/Plugins/Android/com.google.firebase.firebase-messaging-17.4.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.games.gpgs-plugin-support-0.10.06.aar</file>
   </files>
   <settings>
-    <setting name="androidAbis" value="armeabi-v7a,x86" />
-    <setting name="bundleId" value="com.spgames.handyfootball" />
-    <setting name="explodeAars" value="False" />
+    <setting name="androidAbis" value="arm64-v8a,armeabi-v7a" />
+    <setting name="bundleId" value="com.Skinpacks.handyfootball" />
+    <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
     <setting name="gradleTemplateEnabled" value="False" />
     <setting name="installAndroidPackages" value="True" />
