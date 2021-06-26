@@ -119,7 +119,7 @@ public class GlobalGameManager : MonoBehaviour {
     public Texture2D[] statusModes;				//Available status textures
 
     public OpponentAI UnlockableTeams;
-    public AdsManager AM;
+    public GoogleAds GA;
 
 
     //*****************************************************************************
@@ -716,7 +716,7 @@ public class GlobalGameManager : MonoBehaviour {
 		Social.ReportScore(PlayerPrefs.GetInt("PlayerWins"), GPGSIds.leaderboard, (bool success) => {
 			// handle success or failure
 		});
-		AM.ShowRewardedVideoBaseOnMarket();
+		GA.ShowRewardedAd();
 	}
 
 

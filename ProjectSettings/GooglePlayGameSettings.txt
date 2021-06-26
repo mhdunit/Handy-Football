@@ -1,5 +1,5 @@
-lastUpgrade=01006
-proj.pluginVersion=0.10.06
+lastUpgrade=01012
+proj.pluginVersion=0.10.12
 proj.AppId=186551326471
 and.BundleId=com.spgames.handyfootball
 proj.classDir=Assets

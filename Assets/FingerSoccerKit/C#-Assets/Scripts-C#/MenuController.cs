@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using GooglePlayGames;
+using I2.Loc;
 
 public class MenuController : MonoBehaviour {
 		
@@ -21,7 +22,12 @@ public class MenuController : MonoBehaviour {
 
     public Texture2D[] availableFlags;
     public TextMesh[] TeamPrice;
-    public TapSellUse TPU;
+    public GoogleAds GA;
+
+	[Header("Title Manager")]
+	public Material GameTitle;
+
+	public Texture2D GameTitleEn, GameTitleFa;
     //*****************************************************************************
     // Init. Updates the 3d texts with saved values fetched from playerprefs.
     //*****************************************************************************
@@ -161,8 +167,8 @@ public class MenuController : MonoBehaviour {
 					playSfx(tapSfx);
 					StartCoroutine(animateButton(objectHit));
 					yield return new WaitForSeconds(1.0f);
-                    TPU.ShowTapSellVideo();
-                    print("Show Tapsell Video");
+					GA.ShowRewardedAd();
+                   print("Show Tapsell Video");
                     break;					
 				case "Leaderboard":
 					playSfx(tapSfx);
@@ -220,5 +226,15 @@ public class MenuController : MonoBehaviour {
 			GetComponent<AudioSource>().Play();
 		}
 	}
-
+	public void GameTitleLacalization()
+    {
+        if (LocalizationManager.CurrentLanguage == "English")
+        {
+			GameTitle.SetTexture("_MainTex",GameTitleEn);
+        }
+        else
+        {
+			GameTitle.SetTexture("_MainTex", GameTitleFa);
+		}
+    }
 }
