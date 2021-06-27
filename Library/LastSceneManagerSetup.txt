@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/FingerSoccerKit/C#-Assets/Scenes-C#/Penalty-c#.unity
+- path: Assets/FingerSoccerKit/C#-Assets/Scenes-C#/Menu-c#.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

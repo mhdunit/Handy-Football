@@ -32,9 +32,10 @@ public class MenuController : MonoBehaviour {
     // Init. Updates the 3d texts with saved values fetched from playerprefs.
     //*****************************************************************************
     void Awake() {
-        //MHD
 
-        if (PlayerPrefs.GetInt("FirstNationalTeam") != 3 || PlayerPrefs.GetInt("TeamClass") == 1 && PlayerPrefs.GetInt("TournomemtWinning") == 1 || PlayerPrefs.GetInt("TeamClass") == 2 && PlayerPrefs.GetInt("TournomemtWinning") == 2)
+		//MHD
+
+		if (PlayerPrefs.GetInt("FirstNationalTeam") != 3 || PlayerPrefs.GetInt("TeamClass") == 1 && PlayerPrefs.GetInt("TournomemtWinning") == 1 || PlayerPrefs.GetInt("TeamClass") == 2 && PlayerPrefs.GetInt("TournomemtWinning") == 2)
             SceneManager.LoadSceneAsync("TeamChooser");
 
 
