@@ -432,6 +432,14 @@ MonoBehaviour:
       - ".... \u0645\u06A9\u062B .."
       Flags: 0000
       Languages_Touch: []
+    - Term: UI.MainMenu.Achievements
+      TermType: 0
+      Description: 
+      Languages:
+      - Achevements
+      - "\u062F\u0633\u062A\u0627\u0648\u0631\u062F\u0647\u0627"
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: GameTitle
