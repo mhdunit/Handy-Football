@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Splash : MonoBehaviour {
     
@@ -48,6 +49,6 @@ public class Splash : MonoBehaviour {
 
     public void TitleEnd(string Level)
     {
-        Application.LoadLevel(Level);
+       SceneManager.LoadScene(Level);
     }
 }

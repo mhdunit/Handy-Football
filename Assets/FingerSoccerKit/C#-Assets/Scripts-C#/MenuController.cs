@@ -207,7 +207,7 @@ public class MenuController : MonoBehaviour
                     StartCoroutine(animateButton(objectHit));
                     yield return new WaitForSeconds(1.0f);
                     GA.ShowRewardedAd();
-                    print("Show Tapsell Video");
+                 //   print("Show Tapsell Video");
                     break;
                 case "Leaderboard":
                     playSfx(tapSfx);
@@ -215,7 +215,7 @@ public class MenuController : MonoBehaviour
                     yield return new WaitForSeconds(0.5f);
                     // show leaderboard UI
                     Social.ShowLeaderboardUI();
-                    print("Leaderboard");
+                //    print("Leaderboard");
                     break;
                 case "Achievements":
                     playSfx(tapSfx);
@@ -223,7 +223,7 @@ public class MenuController : MonoBehaviour
                     yield return new WaitForSeconds(0.5f);
                     // show leaderboard UI
                     Social.ShowAchievementsUI();
-                    print("Achievement");
+                 //   print("Achievement");
                     break;
             }
         }

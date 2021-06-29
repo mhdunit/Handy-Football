@@ -1012,7 +1012,7 @@ AnimationClip:
     attribute: m_Color.a
     path: BackGround
     classID: 114
-    script: {fileID: -98529514, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+    script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1141,7 +1141,7 @@ AnimationClip:
     attribute: m_Color.a
     path: Text
     classID: 114
-    script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+    script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1187,7 +1187,7 @@ AnimationClip:
     attribute: m_Color.a
     path: BackGround/Logo
     classID: 114
-    script: {fileID: -98529514, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+    script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
@@ -1272,7 +1272,7 @@ AnimationClip:
     attribute: m_Color.a
     path: BackGround
     classID: 114
-    script: {fileID: -98529514, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+    script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1401,7 +1401,7 @@ AnimationClip:
     attribute: m_Color.a
     path: Text
     classID: 114
-    script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+    script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1447,7 +1447,7 @@ AnimationClip:
     attribute: m_Color.a
     path: BackGround/Logo
     classID: 114
-    script: {fileID: -98529514, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+    script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5299,13 +5299,6 @@ AnimationClip:
   - time: 0
     functionName: PlayBackGroundMusic
     data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 6.5
-    functionName: SplashEnd
-    data: Splash
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
