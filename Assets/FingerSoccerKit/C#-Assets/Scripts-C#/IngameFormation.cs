@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using I2.Loc;
 
 public class IngameFormation : MonoBehaviour {
 
@@ -60,8 +61,11 @@ public class IngameFormation : MonoBehaviour {
 		touchManager ();
 
 		//monitor request label text
-		requestByLabel.GetComponent<TextMesh> ().text =  "بازیکن " + formationChangeRequestID;
-        requestByLabel.GetComponent<TextMesh>().text = requestByLabel.GetComponent<TextMesh>().text.faConvert();
+		if(LocalizationManager.CurrentLanguage == "English")
+			requestByLabel.GetComponent<TextMesh>().text = LocalizationManager.GetTermTranslation("UI.GamePlay.Player") + formationChangeRequestID;
+		else
+		requestByLabel.GetComponent<TextMesh> ().text = formationChangeRequestID + LocalizationManager.GetTermTranslation("UI.GamePlay.Player") ;
+        requestByLabel.GetComponent<TextMesh>().text = requestByLabel.GetComponent<TextMesh>().text;
 
     }
 

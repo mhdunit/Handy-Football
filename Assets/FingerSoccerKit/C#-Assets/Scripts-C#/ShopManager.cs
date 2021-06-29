@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using I2.Loc;
 
 public class ShopManager : MonoBehaviour {
 
@@ -113,13 +114,13 @@ public class ShopManager : MonoBehaviour {
                         if (PlayerPrefs.GetInt("Team" + TeamsFlag[i] + "isTheFirstTeam") == 3 && PlayerPrefs.GetInt("Team" + TeamsFlag[i] + "LockState") == 3)
                         {
                             TeamsLocked[i].GetComponent<Renderer>().material.mainTexture = TeamsFlag[i];
-                            TeamPrice[i].text = "باز شد".faConvert();
+                            TeamPrice[i].text = LocalizationManager.GetTermTranslation("UI.GamePlay.Unlocked");
                             TeamPrice[i].color = Color.blue;
                         }
                         else if (PlayerPrefs.GetInt("ActiveTeamLock" + TeamsFlag[i]) == 3 && PlayerPrefs.GetInt("PlayerMoney") >= teamPrice)
                         {
                             TeamsLocked[i].GetComponent<Renderer>().material.mainTexture = TeamsFlag[i];
-                            TeamPrice[i].text = "باز شد".faConvert();
+                            TeamPrice[i].text = LocalizationManager.GetTermTranslation("UI.GamePlay.Unlocked");
                             TeamPrice[i].color = Color.blue;
                         }
                     }
@@ -141,13 +142,13 @@ public class ShopManager : MonoBehaviour {
                         if (PlayerPrefs.GetInt("Team" + TeamsFlag[i] + "isTheFirstTeam") == 3 && PlayerPrefs.GetInt("Team" + TeamsFlag[i] + "LockState") == 3)
                         {
                             TeamsLocked[i].GetComponent<Renderer>().material.mainTexture = TeamsFlag[i];
-                            TeamPrice[i].text = "باز شد".faConvert();
+                            TeamPrice[i].text = LocalizationManager.GetTermTranslation("UI.GamePlay.Unlocked");
                             TeamPrice[i].color = Color.blue;
                         }
                         else if (PlayerPrefs.GetInt("ActiveTeamLock" + TeamsFlag[i]) == 3 && PlayerPrefs.GetInt("PlayerMoney") >= teamPrice)
                         {
                             TeamsLocked[i].GetComponent<Renderer>().material.mainTexture = TeamsFlag[i];
-                            TeamPrice[i].text = "باز شد".faConvert();
+                            TeamPrice[i].text = LocalizationManager.GetTermTranslation("UI.GamePlay.Unlocked");
                             TeamPrice[i].color = Color.blue;
                         }
                     }

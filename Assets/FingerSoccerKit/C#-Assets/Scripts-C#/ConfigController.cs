@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using I2.Loc;
 
 public class ConfigController : MonoBehaviour {
 		
@@ -57,6 +58,9 @@ public class ConfigController : MonoBehaviour {
 	private int p2TeamCounter = 0;				//Actual player-2 team index
 	private int timeCounter = 0;                //Actual game-time index
 
+
+    public TextMesh Description;
+    public TextMesh ChooseYourTeam;
     //*****************************************************************************
     // Init. Updates the 3d texts with saved values fetched from playerprefs.
     //***************************************************************************
@@ -124,7 +128,7 @@ public class ConfigController : MonoBehaviour {
             p2FormationLabel.GetComponent<TextMesh>().text = availableFormations[p2FormationCounter];   //loads default formation
 
 
-            gameTimeLabel.GetComponent<TextMesh>().text = availableTimes[timeCounter].faConvert();              //loads default game-time
+            gameTimeLabel.GetComponent<TextMesh>().text = availableTimes[timeCounter];              //loads default game-time
         }
     }
      void Start()
@@ -646,7 +650,7 @@ public class ConfigController : MonoBehaviour {
 					StartCoroutine(animateButton(objectHit));
 					timeCounter--;
 					fixCounterLengths();
-					gameTimeLabel.GetComponent<TextMesh>().text = availableTimes[timeCounter].faConvert();
+					gameTimeLabel.GetComponent<TextMesh>().text = availableTimes[timeCounter];
 					break;
 					
 				case "durationBtnRight":
@@ -654,7 +658,7 @@ public class ConfigController : MonoBehaviour {
 					StartCoroutine(animateButton(objectHit));
 					timeCounter++;
 					fixCounterLengths();
-					gameTimeLabel.GetComponent<TextMesh>().text = availableTimes[timeCounter].faConvert();
+					gameTimeLabel.GetComponent<TextMesh>().text = availableTimes[timeCounter];
 					break;
 					
 				case "Btn-Back":
@@ -855,5 +859,18 @@ public class ConfigController : MonoBehaviour {
 		}
 	}
 
+    public void OnLanguageChange()
+    {
+        if(LocalizationManager.CurrentLanguage == "English")
+        {
+            Description.characterSize = 0.4f;
+            ChooseYourTeam.characterSize = 0.4f;
+        }
+        else
+        {
+            Description.characterSize = 0.65f;
+            ChooseYourTeam.characterSize = 0.55f;
+        }
+    }
 
     }

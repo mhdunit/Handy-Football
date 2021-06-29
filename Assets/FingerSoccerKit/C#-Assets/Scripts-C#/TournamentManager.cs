@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using I2.Loc;
 
 public class TournamentManager : MonoBehaviour {
 
@@ -33,57 +34,63 @@ public class TournamentManager : MonoBehaviour {
     public AudioClip tapSfx;					//tap sound for buttons click
 	private bool canTap = true;					//flag to prevent double tap
 	private float buttonAnimationSpeed = 11;    //speed on animation effect when tapped on button
+	public TextMesh Description2;
+	void Awake() {
 
-    void Awake() {
+		if (!PlayerPrefs.HasKey("TournomemtWinning"))
+		{
+			PlayerPrefs.SetInt("TournomemtWinning", 0);
+		}
+		//avoid starting the game in paused mode
+		Time.timeScale = 1.0f;
+		Time.fixedDeltaTime = 0.02f;
 
-        if (!PlayerPrefs.HasKey("TournomemtWinning"))
+		//Init Torunament Settings
+		//Get torunament Level
+		torunamentLevel = PlayerPrefs.GetInt("TorunamentLevel");
+
+		//if we are starting a new torunament
+		if (torunamentLevel == 0) {
+			//reset all previous data
+			resetTournamentSettings();
+			//Set Level A settings
+			setLevelASettings();
+		}
+
+		if (torunamentLevel == 1) {
+			setLevelBSettings();
+		}
+
+		if (torunamentLevel == 2) {
+			setLevelCSettings();
+		}
+
+		if (torunamentLevel == 3) {
+			setLevelDSettings();
+		}
+		if (torunamentLevel == 4)
+		{
+			setLevelESettings();
+		}
+
+		//other settings
+		canTap = true;
+		if (PlayerPrefs.GetInt("TorunamentLevel") == 0)
+		{
+			PlayerPrefs.SetInt("NewTeamUnlocked", 0);
+		}
+
+		if (PlayerPrefs.GetInt("NewTeamUnlocked") == 2)
         {
-            PlayerPrefs.SetInt("TournomemtWinning", 0);
-        }
-        //avoid starting the game in paused mode
-        Time.timeScale = 1.0f;
-        Time.fixedDeltaTime = 0.02f;
-
-        //Init Torunament Settings
-        //Get torunament Level
-        torunamentLevel = PlayerPrefs.GetInt("TorunamentLevel");
-
-        //if we are starting a new torunament
-        if (torunamentLevel == 0) {
-            //reset all previous data
-            resetTournamentSettings();
-            //Set Level A settings
-            setLevelASettings();
-        }
-
-        if (torunamentLevel == 1) {
-            setLevelBSettings();
-        }
-
-        if (torunamentLevel == 2) {
-            setLevelCSettings();
-        }
-
-        if (torunamentLevel == 3) {
-            setLevelDSettings();
-        }
-        if (torunamentLevel == 4)
-        {
-            setLevelESettings();
-        }
-
-        //other settings
-        canTap = true;
-        if (PlayerPrefs.GetInt("TorunamentLevel") == 0)
-        {
-            PlayerPrefs.SetInt("NewTeamUnlocked", 0);
-        }
-
-        if (PlayerPrefs.GetInt("NewTeamUnlocked") == 2)
             OwnerTeamText.SetActive(true);
+			UnlockTeamText.SetActive(false);
+		}
       
         else if (PlayerPrefs.GetInt("NewTeamUnlocked") == 3)
+        {
             UnlockTeamText.SetActive(true);
+			OwnerTeamText.SetActive(false);
+		}
         else
         {
             UnlockTeamText.SetActive(false);
@@ -181,7 +188,7 @@ public class TournamentManager : MonoBehaviour {
 		}
 
 		//set start button text
-		btnStartText.GetComponent<TextMesh>().text = "شروع".faConvert();
+		btnStartText.GetComponent<TextMesh>().text = LocalizationManager.GetTermTranslation("UI.Turmanent.Begin"); ;
 		btnStart.GetComponent<BoxCollider>().enabled = true;
 	}
 
@@ -219,10 +226,10 @@ public class TournamentManager : MonoBehaviour {
 
 		//set start button text
 		if(PlayerPrefs.GetInt("TorunamentMatchResult") == 1) {
-			btnStartText.GetComponent<TextMesh>().text = "ادامه".faConvert();
+			btnStartText.GetComponent<TextMesh>().text = LocalizationManager.GetTermTranslation("UI.Turmanent.Continue");
 			btnStart.GetComponent<BoxCollider>().enabled = true;
 		} else {
-			btnStartText.GetComponent<TextMesh>().text = "خروج".faConvert();
+			btnStartText.GetComponent<TextMesh>().text = LocalizationManager.GetTermTranslation("UI.Turmanent.Exit");
 			btnStart.GetComponent<BoxCollider>().enabled = true;
 			btnExit.SetActive(false);
 		}
@@ -268,10 +275,10 @@ public class TournamentManager : MonoBehaviour {
 
 		//set start button text
 		if(PlayerPrefs.GetInt("TorunamentMatchResult") == 1) {
-			btnStartText.GetComponent<TextMesh>().text = "ادامه".faConvert();
+			btnStartText.GetComponent<TextMesh>().text = LocalizationManager.GetTermTranslation("UI.Turmanent.Continue");
             btnStart.GetComponent<BoxCollider>().enabled = true;
 		} else {
-			btnStartText.GetComponent<TextMesh>().text = "خروج".faConvert();
+			btnStartText.GetComponent<TextMesh>().text = LocalizationManager.GetTermTranslation("UI.Turmanent.Exit");
             btnStart.GetComponent<BoxCollider>().enabled = true;
 			btnExit.SetActive(false);
 		}
@@ -327,12 +334,12 @@ public class TournamentManager : MonoBehaviour {
         //set start button text
         if (PlayerPrefs.GetInt("TorunamentMatchResult") == 1)
         {
-            btnStartText.GetComponent<TextMesh>().text = "ادامه".faConvert();
+            btnStartText.GetComponent<TextMesh>().text = LocalizationManager.GetTermTranslation("UI.Turmanent.Continue");
             btnStart.GetComponent<BoxCollider>().enabled = true;
         }
         else
         {
-            btnStartText.GetComponent<TextMesh>().text = "خروج".faConvert();
+            btnStartText.GetComponent<TextMesh>().text = LocalizationManager.GetTermTranslation("UI.Turmanent.Exit");
             btnStart.GetComponent<BoxCollider>().enabled = true;
             btnExit.SetActive(false);
         }
@@ -368,7 +375,7 @@ public class TournamentManager : MonoBehaviour {
 
             LevelETeams[0].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelC0")];
             PlayerPrefs.SetInt("TournomemtWinning", PlayerPrefs.GetInt("TournomemtWinning") + 1);
-            btnStartText.GetComponent<TextMesh>().text = "تمام".faConvert();
+            btnStartText.GetComponent<TextMesh>().text = LocalizationManager.GetTermTranslation("UI.Turmanent.Finish");
             btnStart.GetComponent<BoxCollider>().enabled = true;
             btnExit.SetActive(false);
 
@@ -378,7 +385,7 @@ public class TournamentManager : MonoBehaviour {
 
             LevelETeams[0].GetComponent<Renderer>().material.mainTexture = availableFlags[PlayerPrefs.GetInt("WinnersLevelC1")];
 
-            btnStartText.GetComponent<TextMesh>().text = "وای نه !!".faConvert();
+            btnStartText.GetComponent<TextMesh>().text = LocalizationManager.GetTermTranslation("UI.Turmanent.OhNo!!");
             btnStart.GetComponent<BoxCollider>().enabled = true;
             btnExit.SetActive(false);
         }
@@ -593,5 +600,16 @@ public class TournamentManager : MonoBehaviour {
 
         for (int m = 0; m < 2; m++)
             PlayerPrefs.DeleteKey("WinnersLevelC" + m.ToString());
+    }
+	public void OnLanguageChange()
+    {
+        if (LocalizationManager.CurrentLanguage == "English")
+        {
+			Description2.characterSize = 0.6f;
+        }
+        else
+        {
+			Description2.characterSize = 1;
+		}
     }
 }

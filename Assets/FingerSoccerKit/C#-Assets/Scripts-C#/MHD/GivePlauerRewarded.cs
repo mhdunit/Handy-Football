@@ -12,6 +12,6 @@ public class GivePlauerRewarded : MonoBehaviour
     {
         Menu.PlayOneShot(RewardedvideoSFX);
         PlayerPrefs.SetInt("PlayerMoney", PlayerPrefs.GetInt("PlayerMoney") + 5);
-        TotalCoin.text = PlayerPrefs.GetInt("PlayerMoney").ToString().faConvert();
+        TotalCoin.text = PlayerPrefs.GetInt("PlayerMoney").ToString();
     }
 }

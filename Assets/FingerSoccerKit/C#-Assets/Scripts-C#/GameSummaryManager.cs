@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using I2.Loc;
 
 public class GameSummaryManager : MonoBehaviour {
 
@@ -31,10 +32,13 @@ public class GameSummaryManager : MonoBehaviour {
 	public GameObject uiP1ShootsToGate;
 	public GameObject uiP2ShootsToGate;
 
-
+	public TextMesh MainMenu;
+	public TextMesh PlayAgain;
+	public TextMesh ContinueTurnament;
 
 	void Start () {
 		showSummary ();
+		OnLanguageChange();
 	}
 
 
@@ -66,5 +70,19 @@ public class GameSummaryManager : MonoBehaviour {
 		uiP2ShootsToGate.GetComponent<TextMesh>().text = GlobalGameManager.opponentShootToGate.ToString();
 
 	}
-
+	public void OnLanguageChange()
+    {
+        if (LocalizationManager.CurrentLanguage == "English")
+        {
+			MainMenu.characterSize = 0.6f;
+			PlayAgain.characterSize = 0.6f;
+			ContinueTurnament.characterSize = 0.7f;
+		}
+        else
+        {
+			MainMenu.characterSize = 0.75f;
+			PlayAgain.characterSize = 0.75f;
+			ContinueTurnament.characterSize = 1;
+		}
+    }
 }
