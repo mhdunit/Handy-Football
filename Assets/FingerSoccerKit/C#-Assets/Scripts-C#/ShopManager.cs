@@ -16,6 +16,10 @@ public class ShopManager : MonoBehaviour {
     public Texture2D[] TeamsFlag;
     public TextMesh[] TeamPrice;
 
+    public GoogleAds GA;
+    public int touchCount;
+    public int maximumAdstouchcount;
+
     //*****************************************************************************
     // Init. 
     //*****************************************************************************
@@ -31,8 +35,29 @@ public class ShopManager : MonoBehaviour {
 	//*****************************************************************************
 	// FSM 
 	//*****************************************************************************
-	void Update (){	
-		if(canTap) {
+	void Update (){
+        // Ads Part
+        if (Input.touchCount > 0)
+        {
+            if (!PlayerPrefs.HasKey("TouchCount"))
+                PlayerPrefs.SetInt("TouchCount", 0);
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                if (SceneManager.GetActiveScene().name != "Menu - c#")
+                    touchCount = PlayerPrefs.GetInt("TouchCount");
+
+                touchCount++;
+                PlayerPrefs.SetInt("TouchCount", touchCount);
+                if (touchCount % maximumAdstouchcount == 0)
+                {
+                    GA.ShowInterstitialAd();
+                    touchCount = 0;
+                    PlayerPrefs.SetInt("TouchCount", touchCount);
+                }
+            }
+        }
+        // Ads Part
+        if (canTap) {
 			StartCoroutine(tapManager());
 		}
 

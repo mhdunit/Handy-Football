@@ -35,6 +35,10 @@ public class TournamentManager : MonoBehaviour {
 	private bool canTap = true;					//flag to prevent double tap
 	private float buttonAnimationSpeed = 11;    //speed on animation effect when tapped on button
 	public TextMesh Description2;
+
+	public GoogleAds GA;
+	public int touchCount;
+	public int maximumAdstouchcount;
 	void Awake() {
 
 		if (!PlayerPrefs.HasKey("TournomemtWinning"))
@@ -103,8 +107,30 @@ public class TournamentManager : MonoBehaviour {
 
 
 	void Update () {
-       // print("Team Class : " + PlayerPrefs.GetInt("Team Class") + " , Tournomemt Winning : " + PlayerPrefs.GetInt("TournomemtWinning"));
-        if (canTap) {
+		// Ads Part
+		if (Input.touchCount > 0)
+		{
+			if (!PlayerPrefs.HasKey("TouchCount"))
+				PlayerPrefs.SetInt("TouchCount", 0);
+			if (Input.GetTouch(0).phase == TouchPhase.Began)
+			{
+				if (SceneManager.GetActiveScene().name != "Menu - c#")
+					touchCount = PlayerPrefs.GetInt("TouchCount");
+
+				touchCount++;
+				PlayerPrefs.SetInt("TouchCount", touchCount);
+				if (touchCount % maximumAdstouchcount == 0)
+				{
+					GA.ShowInterstitialAd();
+					touchCount = 0;
+					PlayerPrefs.SetInt("TouchCount", touchCount);
+				}
+			}
+		}
+		// Ads Part
+
+		// print("Team Class : " + PlayerPrefs.GetInt("Team Class") + " , Tournomemt Winning : " + PlayerPrefs.GetInt("TournomemtWinning"));
+		if (canTap) {
 			StartCoroutine(tapManager());
 		}
 

@@ -810,7 +810,7 @@ public class GlobalGameManager : MonoBehaviour
         {
             // handle success or failure
         });
-        GA.ShowRewardedAd();
+        GA.ShowInterstitialAd();
     }
 
 

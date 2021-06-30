@@ -33,6 +33,9 @@ public class MenuController : MonoBehaviour
     public Texture2D img_EnglishLanguage, img_PersianLanguage;
 
     public TextMesh Achievement;
+
+    public int touchCount;
+    public int maximumAdstouchcount;
     //*****************************************************************************
     // Init. Updates the 3d texts with saved values fetched from playerprefs.
     //*****************************************************************************
@@ -87,6 +90,27 @@ public class MenuController : MonoBehaviour
     //*****************************************************************************
     void Update()
     {
+        // Ads Part
+        if (Input.touchCount > 0)
+        {
+            if (!PlayerPrefs.HasKey("TouchCount"))
+                PlayerPrefs.SetInt("TouchCount", 0);
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                if (SceneManager.GetActiveScene().name != "Menu - c#")
+                    touchCount = PlayerPrefs.GetInt("TouchCount");
+
+                touchCount++;
+                PlayerPrefs.SetInt("TouchCount", touchCount);
+                if (touchCount % maximumAdstouchcount == 0)
+                {
+                    GA.ShowInterstitialAd();
+                    touchCount = 0;
+                    PlayerPrefs.SetInt("TouchCount", touchCount);
+                }
+            }
+        }
+        // Ads Part
         if (canTap)
         {
             StartCoroutine(tapManager());
@@ -207,7 +231,7 @@ public class MenuController : MonoBehaviour
                     StartCoroutine(animateButton(objectHit));
                     yield return new WaitForSeconds(1.0f);
                     GA.ShowRewardedAd();
-                 //   print("Show Tapsell Video");
+                    //   print("Show Tapsell Video");
                     break;
                 case "Leaderboard":
                     playSfx(tapSfx);
@@ -215,7 +239,7 @@ public class MenuController : MonoBehaviour
                     yield return new WaitForSeconds(0.5f);
                     // show leaderboard UI
                     Social.ShowLeaderboardUI();
-                //    print("Leaderboard");
+                    //    print("Leaderboard");
                     break;
                 case "Achievements":
                     playSfx(tapSfx);
@@ -223,7 +247,7 @@ public class MenuController : MonoBehaviour
                     yield return new WaitForSeconds(0.5f);
                     // show leaderboard UI
                     Social.ShowAchievementsUI();
-                 //   print("Achievement");
+                    //   print("Achievement");
                     break;
             }
         }

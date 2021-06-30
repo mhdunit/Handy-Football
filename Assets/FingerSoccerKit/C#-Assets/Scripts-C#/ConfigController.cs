@@ -61,6 +61,10 @@ public class ConfigController : MonoBehaviour {
 
     public TextMesh Description;
     public TextMesh ChooseYourTeam;
+
+    public GoogleAds GA;
+    public int touchCount;
+    public int maximumAdstouchcount;
     //*****************************************************************************
     // Init. Updates the 3d texts with saved values fetched from playerprefs.
     //***************************************************************************
@@ -158,6 +162,28 @@ public class ConfigController : MonoBehaviour {
     // FSM
     //*****************************************************************************
     void Update (){
+        // Ads Part
+        if (Input.touchCount > 0)
+        {
+            if (!PlayerPrefs.HasKey("TouchCount"))
+                PlayerPrefs.SetInt("TouchCount", 0);
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                if (SceneManager.GetActiveScene().name != "Menu - c#")
+                    touchCount = PlayerPrefs.GetInt("TouchCount");
+
+                touchCount++;
+                PlayerPrefs.SetInt("TouchCount", touchCount);
+                if (touchCount % maximumAdstouchcount == 0)
+                {
+                    GA.ShowInterstitialAd();
+                    touchCount = 0;
+                    PlayerPrefs.SetInt("TouchCount", touchCount);
+                }
+            }
+        }
+        // Ads Part
+
         //  print("TeamClass : " + PlayerPrefs.GetInt("TeamClass")+ " , " + "p1TeamCounter : " + p1TeamCounter);
         //  print("Reverse : "+ TeamUnlockTempReverse);
         if (Input.GetKey(KeyCode.R))
