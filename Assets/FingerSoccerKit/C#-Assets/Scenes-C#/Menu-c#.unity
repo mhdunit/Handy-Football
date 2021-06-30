@@ -2369,6 +2369,7 @@ MonoBehaviour:
   img_EnglishLanguage: {fileID: 2800000, guid: 959ddc28ff28531408580869c036d86b, type: 3}
   img_PersianLanguage: {fileID: 2800000, guid: 8afd3cf0cbd135c4d898c680a27c8a81, type: 3}
   Achievement: {fileID: 1554344548}
+  touchCount: 0
   maximumAdstouchcount: 5
 --- !u!82 &640657939
 AudioSource:
@@ -3312,6 +3313,7 @@ Transform:
   m_Children:
   - {fileID: 1739697675}
   - {fileID: 1006910710}
+  - {fileID: 1050373162}
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3583,6 +3585,49 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1050373161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1050373162}
+  - component: {fileID: 1050373163}
+  m_Layer: 0
+  m_Name: Firebase Push Notification
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1050373162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050373161}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.1270266, y: 1.2242649, z: -7.0107074}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 951928881}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1050373163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050373161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a19cec584b43e9d438011780f45dc109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1123912465
 GameObject:
   m_ObjectHideFlags: 0
